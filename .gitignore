@@ -1,8 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# devcontainer
-!.devcontainer/.env
-
 # dependencies
 .pnpm-store/*
 /node_modules
@@ -45,5 +42,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# tmux
-tmux*
+# devcontainer
+!.devcontainer/.env
