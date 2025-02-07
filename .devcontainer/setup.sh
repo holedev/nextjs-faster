@@ -1,11 +1,11 @@
 #!/bin/bash
 
-USER="node"
-ZSH_CUSTOM="/home/$USER/.oh-my-zsh/custom"
-ZSHRC_PATH="/home/$USER/.zshrc"
-HISTFILE_PATH="/commandhistory/.zsh_history"
+ZSH_CUSTOM="$CONTAINER_HOME/.oh-my-zsh/custom"
+ZSHRC_PATH="$CONTAINER_HOME/.zshrc"
+CMD_HISTORY_PATH="$CONTAINER_HOME/commandhistory"
+HISTFILE_PATH="$CONTAINER_HOME/commandhistory/.zsh_history"
 
-echo "==> Setting configuration..."
+echo "==> START CONFIGURATION <=="
 echo "==> Current user: $(whoami)"
 
 echo "==> Setting zsh..."
@@ -31,16 +31,14 @@ fi
 
 echo "==> Setting up history file..."
 
-if [ ! -d "/commandhistory" ]; then
-  mkdir -p /commandhistory
-  chown $USER:$USER /commandhistory
-  echo "==> Created /commandhistory directory."
+if [ ! -d "$CMD_HISTORY_PATH" ]; then
+  mkdir -p "$CMD_HISTORY_PATH"
+  echo "==> Created $CMD_HISTORY_PATH directory."
 fi
 
 if [ ! -f "$HISTFILE_PATH" ]; then
   touch "$HISTFILE_PATH"
-  chown $USER:$USER "$HISTFILE_PATH"
-  echo "==> Created .zsh_history file at /commandhistory."
+  echo "==> Created .zsh_history file at $CMD_HISTORY_PATH."
 fi
 
 if ! grep -q "HISTFILE" "$ZSHRC_PATH"; then
@@ -53,4 +51,4 @@ zsh -c "source $ZSHRC_PATH"
 
 echo "==> Setup zsh done!"
 
-echo "==> Setup completed!"
+echo "==> END CONFIGURATION <=="

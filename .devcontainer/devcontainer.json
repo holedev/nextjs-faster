@@ -69,6 +69,8 @@
         }
       },
       "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
         "ms-vscode.vscode-typescript-next",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
@@ -84,7 +86,7 @@
       ]
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "bash .devcontainer/setup.sh && bash .devcontainer/prerun.sh && pnpm dev",
   "remoteUser": "node",
   "containerUser": "node"
 }

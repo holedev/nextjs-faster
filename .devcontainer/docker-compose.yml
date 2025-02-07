@@ -4,11 +4,16 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    env_file:
+      - .env
     volumes:
       - ..:/workspaces:cached
       - app-node-modules:/workspaces/node_modules
-      - app-command-history:/commandhistory
-      - app-oh-my-zsh:/home/node/.oh-my-zsh
+      - app-command-history:${CONTAINER_HOME}/commandhistory
+      - app-oh-my-zsh:${CONTAINER_HOME}/.oh-my-zsh
+      - ~/.ssh:${CONTAINER_HOME}/.ssh:ro
+      - ~/.gitconfig:${CONTAINER_HOME}/.gitconfig:ro
 
 volumes:
   app-node-modules:
