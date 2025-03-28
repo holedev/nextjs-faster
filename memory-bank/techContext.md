@@ -50,6 +50,52 @@
 - lint-staged for Staged Files
 - commitlint for Commit Messages
 
+### Docker Environment
+- Base Image: node:20.15.1-alpine
+- Multi-stage build process
+- Development container support
+- Production optimization
+
+### Environment Variables
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=        # Supabase project URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY=   # Supabase anonymous key
+
+# Database Configuration
+DATABASE_URL=                     # Primary database connection URL
+DIRECT_URL=                      # Direct database connection URL
+```
+
+## Installation Methods
+
+### 1. Local Development
+```bash
+# Clone repository
+git clone git@github.com:holedev/starter-kit.git
+cd starter-kit
+
+# Environment setup
+cp .env.example .env
+# Configure environment variables
+
+# Install dependencies
+pnpm i
+
+# Start development server
+pnpm dev
+```
+
+### 2. Docker Development
+```bash
+# Start with Docker Compose
+docker compose up
+
+# Or use VS Code Dev Containers
+# 1. Open in VS Code
+# 2. Reopen in Container
+```
+
 ### Scripts
 ```json
 "scripts": {
@@ -98,6 +144,26 @@
 }
 ```
 
+## Deployment Options
+
+### 1. Vercel Deployment
+- One-click deployment
+- Automatic environment setup
+- Required environment variables:
+  - NEXT_PUBLIC_SUPABASE_URL
+  - NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - DATABASE_URL
+  - DIRECT_URL
+
+### 2. Docker Deployment
+- Multi-stage build optimization
+- Production-ready container
+- Environment variable management
+- Security hardening:
+  - Non-root user
+  - Minimal base image
+  - Secure defaults
+
 ## Technical Constraints
 
 ### Browser Support
@@ -115,6 +181,7 @@
 - Protected API routes
 - Type-safe database operations
 - Environment variable management
+- Docker security best practices
 
 ## Development Setup
 
@@ -147,5 +214,21 @@ Required environment variables:
 3. Build Next.js application
 4. Environment configuration
 5. Database migrations
+
+### Docker Build Process
+1. Dependencies stage
+   - System dependencies
+   - Node modules
+   - Prisma client
+
+2. Builder stage
+   - Application build
+   - Static file generation
+   - Standalone output
+
+3. Runner stage
+   - Production optimization
+   - Security hardening
+   - Environment setup
 
 This technical context provides the foundation for development decisions and should be updated as dependencies or technical requirements change.

@@ -54,6 +54,40 @@ utils/             # Helper functions
 - CSS modules for component-specific styles
 - Theme system for light/dark mode
 
+### 5. Docker Architecture
+```mermaid
+flowchart TD
+    A[Base Image: node:20.15.1-alpine] --> B[Dependencies Stage]
+    A --> C[Builder Stage]
+    A --> D[Runner Stage]
+    
+    B -- node_modules --> C
+    C -- standalone --> D
+    C -- static files --> D
+```
+
+#### Multi-stage Build Process
+1. Dependencies Stage (deps)
+   - Install system dependencies
+   - Install npm packages
+   - Generate Prisma client
+
+2. Builder Stage
+   - Copy node_modules
+   - Build application
+   - Generate standalone output
+
+3. Runner Stage
+   - Production-optimized
+   - Security hardened
+   - Minimal footprint
+
+#### Container Security
+- Non-root user (nextjs)
+- System group (nodejs)
+- Minimal base image
+- Production environment
+
 ## Design Patterns
 
 ### 1. Component Patterns
@@ -98,6 +132,18 @@ configs/supabase/middleware.ts
 // i18n Configuration
 configs/i18n/routing.ts
 configs/i18n/request.ts
+```
+
+### 5. Deployment Pattern
+```mermaid
+flowchart TD
+    A[Source Code] --> B[Build Process]
+    B --> C[Docker Image]
+    C --> D[Development]
+    C --> E[Production]
+    
+    D --> F[Docker Compose]
+    E --> G[Vercel Deploy]
 ```
 
 ## Component Relationships
@@ -153,5 +199,23 @@ Prisma ←→ Database Operations
 - Proper error handling
 - Request validation
 - Response formatting
+
+### 5. Docker Development
+- Use multi-stage builds
+- Optimize layer caching
+- Implement security best practices
+- Manage environment variables
+
+### 6. Deployment Strategy
+1. Development
+   - Docker Compose for local development
+   - Hot reloading enabled
+   - Development-specific configurations
+
+2. Production
+   - Vercel deployment
+   - Docker container deployment
+   - Environment variable management
+   - Production optimizations
 
 These patterns form the foundation of the system architecture and should be followed for consistency and maintainability.
