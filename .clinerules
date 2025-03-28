@@ -1,0 +1,145 @@
+---
+description: Next.js with TypeScript and Shadcn UI best practices
+globs: **/*.tsx, **/*.ts, src/**/*.ts, src/**/*.tsx
+---
+
+# Project Intelligence Rules
+
+## File Organization
+
+### Directory Patterns
+- Use [locale] for internationalization routes
+- Group routes into (public) and (private)
+- Place reusable UI components in components/ui/
+- Keep custom components in components/custom/
+- Store configurations in configs/ directory
+- Maintain utils/ for helper functions
+
+### Naming Conventions
+- Use PascalCase for component files
+- Use kebab-case for utility files
+- Use camelCase for variables and functions
+- Suffix client components with ".client"
+- Append ".server" when explicitly server components
+
+## Code Patterns
+
+### Component Structure
+- Use TypeScript for all components
+- Implement proper type definitions
+- Export components as named exports
+- Follow functional component pattern
+- Include component documentation
+
+### State Management
+- Prefer server components
+- Use client components only when needed
+- Implement proper loading states
+- Handle errors with try/catch
+- Use type-safe data fetching
+
+### Styling Patterns
+- Use Tailwind utility classes
+- Follow mobile-first approach
+- Implement dark mode variants
+- Use CSS variables for theming
+- Follow accessibility guidelines
+
+## Development Workflow
+
+## Sensitive Files
+DO NOT read or modify:
+- .env files
+- **/config/secrets.* 
+- **/*.pem
+- Any file containing API keys, tokens, or credentials
+
+## Security Practices
+- Never commit sensitive files
+- Use environment variables for secrets
+- Keep credentials out of logs and output
+
+## Manager Package
+- Use pnpm instead of npm 
+- shadcn-ui is old name of lib, use shadcn instead of
+
+### Git Practices
+- Use conventional commit, add footer for every commit "Signed-off-by: RooCode"
+- Remember **DONT** write in 'main' branch, write code in 'dev' branch or create new branch if need
+- Use rebase for merge branch
+- Use meaningful commit messages
+- Keep PRs focused and small
+- Update documentation with changes
+
+### Testing Strategy
+- Write unit tests for utilities
+- Create integration tests for flows
+- Test both light and dark modes
+- Verify i18n functionality
+- Ensure mobile responsiveness
+
+### Performance Guidelines
+- Optimize images
+- Implement proper loading states
+- Use code splitting
+- Monitor bundle size
+- Cache when appropriate
+
+## Project Preferences
+
+### Code Style
+- Max line length: 80 characters
+- Use single quotes for strings
+- Use semicolons
+- Two space indentation
+- No trailing commas
+
+### Documentation
+- Document complex functions
+- Include component props
+- Maintain README updates
+- Add code examples
+- Keep inline comments minimal
+
+### Error Handling
+- Use custom error classes
+- Implement proper logging
+- Show user-friendly messages
+- Handle edge cases
+- Maintain type safety
+
+### Security Practices
+- Validate all inputs
+- Sanitize user data
+- Use proper authentication
+- Implement rate limiting
+- Follow security best practices
+
+## Tooling Configuration
+
+### ESLint Rules
+- Enforce TypeScript
+- Require prop types
+- Check accessibility
+- Maintain consistent style
+- Prevent common errors
+
+### Prettier Settings
+```json
+{
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "printWidth": 80
+}
+```
+
+### Git Hooks
+- Run linting pre-commit
+- Check types pre-push
+- Verify tests pre-push
+- Format code pre-commit
+- Validate commit messages
+
+This intelligence file will be updated as new patterns and preferences are discovered during development.

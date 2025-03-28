@@ -1,0 +1,10 @@
+build
+dist / media
+node_modules
+.DS_Store
+.env
+.env.prod
+.next
+.vercel
+
+.pnpm-store
