@@ -1,10 +1,9 @@
-import { ErrorResponse, SuccessResponse } from "./response";
+import { createClientSSR } from "@/configs/supabase/server";
 import { type ResponseType } from "@/types/response";
 import { type User } from "@supabase/supabase-js";
-import { createClientSSR } from "@/configs/supabase/server";
+import { ErrorResponse, SuccessResponse } from "./response";
 
 type handleErrorServerType = {
-  // eslint-disable-next-line no-unused-vars
   cb: ({ user }: { user?: User }) => Promise<object>;
 };
 

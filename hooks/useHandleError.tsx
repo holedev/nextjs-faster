@@ -1,10 +1,9 @@
 import { ResponseType, SuccessResponseType } from "@/types/response";
-import { useToast } from "./use-toast";
 import { useTranslations } from "next-intl";
+import { useToast } from "./use-toast";
 
 type handleErrorType = {
   cb: () => Promise<ResponseType>;
-  // eslint-disable-next-line no-unused-vars
   onSuccess?: ({ data }: { data: SuccessResponseType }) => void;
   withSuccessNotify?: boolean;
 };
