@@ -2,10 +2,10 @@
   "name": "Starter Kit",
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
-  "workspaceFolder": "/workspaces",
+  "workspaceFolder": "/home/node/workspaces",
   "features": {
     "ghcr.io/devcontainers/features/git:1.3.2": {},
-    "ghcr.io/devcontainers/features/common-utils:2.5.2": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "node",
       "installZsh": true,
       "installOhMyZsh": true,
@@ -15,9 +15,7 @@
   },
   "forwardPorts": [3000],
   "hostRequirements": {
-    "cpus": 4,
-    "memory": "8gb",
-    "storage": "32gb"
+    "memory": "8gb"
   },
   "customizations": {
     "vscode": {
@@ -82,7 +80,8 @@
         "wallabyjs.console-ninja",
         "eamodio.gitlens",
         "wesbos.theme-cobalt2",
-        "PKief.material-icon-theme"
+        "PKief.material-icon-theme",
+        "RooVeterinaryInc.roo-cline"
       ]
     }
   },

@@ -36,6 +36,8 @@ if [ ! -d "$CMD_HISTORY_PATH" ]; then
   echo "==> Created $CMD_HISTORY_PATH directory."
 fi
 
+sudo chown -R $(whoami) "$CMD_HISTORY_PATH"
+
 if [ ! -f "$HISTFILE_PATH" ]; then
   touch "$HISTFILE_PATH"
   echo "==> Created .zsh_history file at $CMD_HISTORY_PATH."
