@@ -110,14 +110,99 @@ flowchart TD
 ```
 
 ### 2. Error Handling Pattern
+
+#### Client-Side Error Handling
+```typescript
+// useHandleError Hook Pattern
+const { handleErrorClient } = useHandleError();
+
+await handleErrorClient({
+  cb: async () => { /* async operation */ },
+  onSuccess: ({ data }) => { /* success handler */ },
+  withSuccessNotify: true
+});
+```
+
+#### Server-Side Error Handling
+```typescript
+// Public Routes
+const response = await handleErrorServerNoAuth({
+  cb: async () => { /* server operation */ }
+});
+
+// Protected Routes
+const response = await handleErrorServerWithAuth({
+  cb: async ({ user }) => { /* authenticated operation */ }
+});
+```
+
+#### Response Types
+```typescript
+type ResponseType<T = any> = {
+  error?: ErrorResponseType;
+  data?: T;
+};
+
+type ErrorResponseType = {
+  message: string;
+};
+```
+
+#### Error Boundaries
 ```typescript
 // Global Error Boundary
 app/error.tsx
 app/[locale]/error.tsx
 
-// API Error Response Pattern
-utils/handleErrorServer.ts
-utils/response.ts
+// Component Error Boundaries
+components/custom/ErrorBoundary.tsx
+```
+
+### 2.1 Testing Patterns
+
+#### Unit Testing
+```typescript
+// Component Tests
+describe('Component', () => {
+  it('handles errors correctly', async () => {
+    const { handleErrorClient } = useHandleError();
+    await handleErrorClient({
+      cb: mockAsyncOperation,
+      onSuccess: mockSuccessHandler
+    });
+  });
+});
+
+// API Route Tests
+describe('API Route', () => {
+  it('handles unauthorized access', async () => {
+    const response = await handleErrorServerWithAuth({
+      cb: mockProtectedOperation
+    });
+    expect(response.error).toBeDefined();
+  });
+});
+```
+
+#### Integration Testing
+```typescript
+// Auth Flow Testing
+describe('Authentication', () => {
+  it('protects routes correctly', async () => {
+    // Test middleware
+    // Test session handling
+    // Test callback routes
+  });
+});
+
+// API Integration
+describe('API Integration', () => {
+  it('handles complete workflows', async () => {
+    // Test data flow
+    // Test error scenarios
+    // Test success paths
+  });
+});
 ```
 
 ### 3. Authentication Pattern
