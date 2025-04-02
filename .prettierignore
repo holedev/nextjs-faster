@@ -1,5 +1,7 @@
 .vscode
 node_modules/
+memory-bank/
 dist/
 .next/
 pnpm-lock.yaml
+README.md

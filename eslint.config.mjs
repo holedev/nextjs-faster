@@ -1,9 +1,9 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import nextNext from "@next/eslint-plugin-next";
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +15,7 @@ const compat = new FlatCompat({
 
 const Configuration = [
   {
-    ignores: ["**/dist", "**/node_modules", "**/.next"]
+    ignores: ["**/dist", "**/node_modules", "**/.next", "**/memory-bank"]
   },
   ...compat.extends(
     "next/core-web-vitals",
@@ -37,12 +37,12 @@ const Configuration = [
     rules: {
       "react-hooks/exhaustive-deps": 0,
       "no-console": ["error", { allow: ["info", "warn", "error"] }],
-      "no-unused-vars": [
+      "no-duplicate-imports": "error",
+      "@typescript-eslint/no-require-imports": 0,
+      "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }
-      ],
-      "no-duplicate-imports": "error",
-      "@typescript-eslint/no-require-imports": 0
+      ]
     }
   }
 ];
