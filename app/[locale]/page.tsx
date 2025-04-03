@@ -1,11 +1,11 @@
+import { LoadingComponent } from "@/components/custom/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Metadata } from "next";
 import { locale } from "@/types/global";
+import { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 import { UserList } from "./dynamic";
-import { LoadingComponent } from "@/components/custom/Loading";
 
 type PageType = {
   params: Promise<{ locale: locale }>;
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const techs: string[] = ["NextJS 15", "Shadcn/ui", "TailwindCSS", "Prisma"];
+const techs: string[] = ["NextJS 15", "Shadcn", "TailwindCSS 3", "Prisma 6"];
 
 export default async function Page({ params }: PageType) {
   const { locale } = await params;

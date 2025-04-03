@@ -48,6 +48,13 @@ if ! grep -q "HISTFILE" "$ZSHRC_PATH"; then
   echo "export HISTFILE=$HISTFILE_PATH" >> "$ZSHRC_PATH"
 fi
 
+echo "==> Install uv (use for MCP server)..."
+if ! command -v uv &> /dev/null; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+else
+  echo "==> uv already installed."
+fi
+
 echo "==> Reloading .zshrc..."
 zsh -c "source $ZSHRC_PATH"
 

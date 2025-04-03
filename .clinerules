@@ -35,6 +35,7 @@ DO NOT read or modify:
 
 - When create a new api route, remember create swagger api document
 - When create new UI component, priority to use shadcn@latest before create new component
+- When create new page, priority to use i18n with two languages: English and Vietnamese
 
 ## Development Environment
 

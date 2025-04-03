@@ -3,6 +3,10 @@
 echo "==> START INSTALL <=="
 echo "==> Current user: $(whoami)"
 
+echo "==> Config git credentail ..."
+git config --global user.name "devcontainer"
+git config --global user.email "devcontainer@remote.com"
+
 echo "==> Install latest corepack ..."
 sudo npm install -g corepack@latest
 

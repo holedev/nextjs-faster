@@ -85,7 +85,9 @@
       ]
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh && bash .devcontainer/prerun.sh && pnpm dev",
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "bash .devcontainer/prerun.sh",
+  "postStartCommand": "pnpm dev",
   "remoteUser": "node",
   "containerUser": "node"
 }
