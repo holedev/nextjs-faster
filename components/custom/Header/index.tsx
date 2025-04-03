@@ -1,8 +1,9 @@
-import { useTranslations } from "next-intl";
 import { Link } from "@/configs/i18n/routing";
+import { useTranslations } from "next-intl";
+import { default as NextLink } from "next/link";
+import { LocaleSelect } from "./LocalSlelect.client";
 import { ModeToggle } from "./ModeToggle.client";
 import { UserProfile } from "./UserProfile.client";
-import { LocaleSelect } from "./LocalSlelect.client";
 
 const Header = () => {
   const tHeader = useTranslations("header");
@@ -15,7 +16,13 @@ const Header = () => {
             {tHeader("logoName")}
           </Link>
         </div>
-        <div className='flex gap-2'>
+        <div className='flex gap-2 items-center'>
+          <NextLink
+            href='/api-docs'
+            className='text-sm font-medium text-muted-foreground transition-colors hover:text-primary mr-0'
+          >
+            {tHeader("apiDocs")}
+          </NextLink>
           <LocaleSelect />
           <ModeToggle />
           <UserProfile />

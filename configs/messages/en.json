@@ -33,7 +33,8 @@
     }
   },
   "header": {
-    "logoName": "STARTER KIT"
+    "logoName": "STARTER KIT",
+    "apiDocs": "API Docs"
   },
   "footer": {
     "copyright": "© 2024, 2025 - <a target='__blank' href='https://github.com/holedev'>@holedev</a>"
