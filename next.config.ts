@@ -5,6 +5,9 @@ const withNextIntl = createNextIntlPlugin("./configs/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  outputFileTracingExcludes: {
+    "/api/docs": ["./.next/cache/**/*"]
+  },
   webpack: (
     config,
     {
