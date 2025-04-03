@@ -1,6 +1,6 @@
 # 🚀 Next.js Starter Kit
 
-A Starter Kit for rapidly development with Next.js 15, TypeScript, and Shadcn UI. I built this project for developers who want to move fast without compromising on quality.
+A turbocharged starter kit for rapid development with Next.js 15, TypeScript, and Shadcn UI. Built for developers who want to move fast without compromising on quality.
 
 ## ⚡️ Instant Developer Experience
 
@@ -154,6 +154,38 @@ export async function GET() {
 
 ### Vercel (Recommended)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fholedev%2Fstarter-kit)
+
+#### Important: Vercel Size Limits
+Vercel has a size limit of 250MB for serverless functions. To avoid deployment issues:
+
+1. **Configure Build Output**
+   Add to your `next.config.ts`:
+   ```typescript
+   const config = {
+     output: 'standalone',
+     experimental: {
+       serverMinification: true,
+     },
+   };
+   ```
+
+2. **Optimize Dependencies**
+   - Use `dependencies` vs `devDependencies` correctly
+   - Remove unused dependencies
+   - Use dynamic imports for large libraries
+   - Consider using CDN for large assets
+
+3. **Monitor Build Size**
+   ```bash
+   pnpm build
+   # Check .next/standalone size before deploying
+   ```
+
+4. **Alternative Deployment Options**
+   If your app exceeds limits:
+   - Use Docker deployment
+   - Consider splitting into microservices
+   - Use edge functions for API routes
 
 ### Docker
 ```bash
