@@ -1,6 +1,6 @@
 # 🚀 Next.js Starter Kit
 
-A turbocharged starter kit for rapid development with Next.js 15, TypeScript, and Shadcn UI. Built for developers who want to move fast without compromising on quality.
+A turbocharged starter kit for rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for developers who want to move fast without compromising on quality.
 
 ## ⚡️ Instant Developer Experience
 

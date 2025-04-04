@@ -52,7 +52,7 @@ DO NOT read or modify:
 - Use the App Router directory structure
 - Place components in `app` directory for route-specific components
 - Place shared components in `components` directory
-- Place utilities and helpers in `lib` directory
+- Place utilities and helpers in `utils` directory, the `lib` directory is reserved for third-party libraries
 - Use lowercase with dashes for directories (e.g., `components/auth-wizard`)
 - Place configuration files in `configs` directory:
   - i18n: Internationalization configuration
