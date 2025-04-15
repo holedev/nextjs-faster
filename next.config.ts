@@ -4,6 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./configs/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  turbopack: {},
   output: "standalone",
   outputFileTracingExcludes: {
     "/api/docs": ["./.next/cache/**/*"]
