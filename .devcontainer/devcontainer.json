@@ -27,7 +27,7 @@
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
         "editor.stickyScroll.enabled": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "biomejs.biome",
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true,
         "editor.codeActionsOnSave": {
@@ -55,7 +55,6 @@
         ],
         "indentRainbow.includedLanguages": ["html"],
         "console-ninja.featureSet": "Community",
-        "github.copilot.editor.enableAutoCompletions": true,
         "github.copilot.chat.generateTests.codeLens": true,
         "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
         "github.copilot.chat.temporalContext.enabled": true,
@@ -70,8 +69,6 @@
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "ms-vscode.vscode-typescript-next",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
         "prisma.primsa",
         "prisma.prisma-insider",
@@ -81,7 +78,8 @@
         "eamodio.gitlens",
         "wesbos.theme-cobalt2",
         "PKief.material-icon-theme",
-        "RooVeterinaryInc.roo-cline"
+        "RooVeterinaryInc.roo-cline",
+        "biomejs.biome"
       ]
     }
   },

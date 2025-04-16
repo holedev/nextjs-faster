@@ -1,20 +1,20 @@
 "use client";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { Button } from "../../ui/button";
-import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { createClient } from "@/configs/supabase/client";
-import { redirect } from "next/navigation";
-import { _ROUTE_AUTH, _ROUTE_PROFILE } from "@/constants/route";
 import { useRouter } from "@/configs/i18n/routing";
-import { User } from "@supabase/supabase-js";
+import { createClient } from "@/configs/supabase/client";
+import { _ROUTE_AUTH, _ROUTE_PROFILE } from "@/constants/route";
+import type { User } from "@supabase/supabase-js";
 import { useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Button } from "../../ui/button";
 import { Skeleton } from "../../ui/skeleton";
 
 const UserProfile = () => {

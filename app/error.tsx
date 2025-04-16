@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 type ErrorType = { error: Error & { digest?: string }; reset: () => void };
 
-export default function Error({ error, reset }: ErrorType) {
+export default function ErrorGlobal({ error, reset }: ErrorType) {
   const t = useTranslations("defaultPage.error");
 
   useEffect(() => {

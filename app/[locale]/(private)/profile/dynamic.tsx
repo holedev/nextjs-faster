@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { User } from "@supabase/supabase-js";
+import type { User } from "@supabase/supabase-js";
 import { getTranslations } from "next-intl/server";
 
 const Profile = async ({ user }: { user: User }) => {

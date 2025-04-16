@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { createClientSSR } from "@/configs/supabase/server";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
@@ -15,11 +15,11 @@ export async function GET(request: Request) {
 
       if (isLocalEnv) {
         return NextResponse.redirect(`${origin}${next}`);
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`http://${forwardedHost}${next}`);
-      } else {
-        return NextResponse.redirect(`${origin}${next}`);
       }
+      if (forwardedHost) {
+        return NextResponse.redirect(`http://${forwardedHost}${next}`);
+      }
+      return NextResponse.redirect(`${origin}${next}`);
     }
   }
 

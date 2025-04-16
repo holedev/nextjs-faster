@@ -3,9 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useHandleError } from "@/hooks/useHandleError";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { updateNickname } from "./actions";
-import { useTranslations } from "next-intl";
 
 type FormClientType = { nickname: string };
 

@@ -1,6 +1,6 @@
 import { createClientSSR } from "@/configs/supabase/server";
-import { type ResponseType } from "@/types/response";
-import { type User } from "@supabase/supabase-js";
+import type { ResponseType } from "@/types/response";
+import type { User } from "@supabase/supabase-js";
 import { ErrorResponse, SuccessResponse } from "./response";
 
 type handleErrorServerType = {

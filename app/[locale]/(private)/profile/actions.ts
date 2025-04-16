@@ -1,7 +1,7 @@
 "use server";
 
-import { handleErrorServerWithAuth } from "@/utils/handleErrorServer";
 import { prisma } from "@/configs/prisma/db";
+import { handleErrorServerWithAuth } from "@/utils/handleErrorServer";
 import { revalidateTag, unstable_cache } from "next/cache";
 
 const getProfile = async () =>
@@ -11,25 +11,27 @@ const getProfile = async () =>
         async () => {
           const nickname = await prisma.nickname.findUnique({
             where: {
-              authorId: user!.id
+              authorId: user?.id
             }
           });
 
-          console.info("[actions.ts:18] ", "refetch user profile", user!.email);
+          console.info("[actions.ts:18] ", "refetch user profile", user?.email);
 
           return {
             ...user,
             nickname: nickname?.content
           };
         },
-        ["profile", user!.id],
-        { tags: [`profile::${user!.id}`] }
+        ["profile", user?.id ?? ""],
+        { tags: [`profile::${user?.id}`] }
       )()
   });
 
 const updateNickname = async (nickname: string) =>
   handleErrorServerWithAuth({
     cb: async ({ user }) => {
+      if (!user) throw new Error("User Not Found!");
+
       const existingNickname = await prisma.nickname.findFirst({
         where: { content: nickname }
       });
@@ -40,19 +42,19 @@ const updateNickname = async (nickname: string) =>
 
       const updatedNickname = await prisma.nickname.upsert({
         where: {
-          authorId: user!.id
+          authorId: user.id
         },
         update: {
           content: nickname
         },
         create: {
           content: nickname,
-          authorId: user!.id
+          authorId: user.id
         }
       });
 
       revalidateTag("nicknames");
-      revalidateTag(`profile::${user!.id}`);
+      revalidateTag(`profile::${user.id}`);
       return updatedNickname;
     }
   });

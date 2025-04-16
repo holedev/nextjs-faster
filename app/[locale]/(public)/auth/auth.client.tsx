@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { createClient } from "@/configs/supabase/client";
-import type { Provider } from "@supabase/supabase-js";
-import { _ROUTE_AUTH_CALLBACK } from "@/constants/route";
-import { useTranslations } from "next-intl";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { createClient } from "@/configs/supabase/client";
+import { _ROUTE_AUTH_CALLBACK } from "@/constants/route";
 import { useHandleError } from "@/hooks/useHandleError";
-import { ResponseType } from "@/types/response";
+import type { ResponseType } from "@/types/response";
+import type { Provider } from "@supabase/supabase-js";
+import { useTranslations } from "next-intl";
 
 const LoginClient = () => {
   const t = useTranslations("common.text");

@@ -1,10 +1,10 @@
+import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "@/configs/i18n/routing";
 import { _ROUTE_PROFILE } from "@/constants/route";
+import { getRandomPastelColor, handleDatetime } from "@/utils/handleDatetime";
 import { getTranslations } from "next-intl/server";
 import { getAllNickname } from "./actions";
-import { getRandomPastelColor, handleDatetime } from "@/utils/handleDatetime";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Badge } from "@/components/ui/badge";
 
 type NicknameType = {
   content: string;
@@ -34,11 +34,11 @@ const UserList = async () => {
         </p>
       </div>
       <div className='flex flex-wrap space-x-2'>
-        {nicknames?.map((nickname, index) => {
+        {nicknames?.map((nickname, _) => {
           const randomBackgroundColor = getRandomPastelColor();
 
           return (
-            <Tooltip key={index}>
+            <Tooltip key={nickname.content}>
               <TooltipTrigger>
                 <Badge style={{ background: randomBackgroundColor }} className='text-md rounded-md'>
                   {nickname.content}
