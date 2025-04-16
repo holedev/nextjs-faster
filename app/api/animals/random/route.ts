@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { animals, type Animal } from "@/configs/data/animals";
+import { type Animal, animals } from "@/configs/data/animals";
+import { type NextRequest, NextResponse } from "next/server";
 
 /**
  * @swagger

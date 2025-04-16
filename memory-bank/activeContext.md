@@ -3,7 +3,7 @@
 ## Current State
 
 ### Project Status
-- Initial setup of Next.js starter kit
+- Initial setup of Next.js faster
 - Core features implemented
 - Memory bank system established
 - Docker containerization ready
@@ -22,7 +22,7 @@
 
 ### Environment Setup
 - Development environment configured
-- Linting and formatting rules established
+- Biome linting and formatting rules established
 - Git hooks configured
 - Database migrations ready
 - Docker compose configured
@@ -38,7 +38,7 @@
 5. Docker containerization implemented
 
 ### Configuration
-1. ESLint and Prettier setup
+1. Biome setup for linting and formatting
 2. Commit message linting
 3. TypeScript configuration
 4. Tailwind setup

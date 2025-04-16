@@ -1,10 +1,10 @@
 "use client";
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/configs/i18n/routing";
-import { useTransition } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { usePathname, useRouter } from "@/configs/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
+import { useTransition } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
 
 const LocaleSelect = () => {
   const t = useTranslations("common.locale");

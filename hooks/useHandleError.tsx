@@ -1,4 +1,4 @@
-import { ResponseType, SuccessResponseType } from "@/types/response";
+import type { ResponseType, SuccessResponseType } from "@/types/response";
 import { useTranslations } from "next-intl";
 import { useToast } from "./use-toast";
 
@@ -32,7 +32,7 @@ const useHandleError = () => {
         });
       }
 
-      onSuccess({ data: data! });
+      onSuccess({ data: data ?? {} });
     } catch (error) {
       console.error("[useHandleError.tsx:34] ", error);
       if (error instanceof Error) {

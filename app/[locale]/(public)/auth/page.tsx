@@ -1,7 +1,7 @@
+import type { locale } from "@/types/global";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LoginClient } from "./auth.client";
-import { Metadata } from "next";
-import { locale } from "@/types/global";
 
 type PageType = { params: Promise<{ locale: locale }> };
 

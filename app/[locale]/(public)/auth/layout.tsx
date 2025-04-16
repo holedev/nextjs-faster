@@ -1,6 +1,6 @@
-import { locale } from "@/types/global";
+import type { locale } from "@/types/global";
 import { setRequestLocale } from "next-intl/server";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type LayoutType = { children: ReactNode; params: Promise<{ locale: locale }> };
 

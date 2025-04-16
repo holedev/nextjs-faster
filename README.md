@@ -1,97 +1,83 @@
-# 🚀 Next.js Starter Kit
+# 🚀 Next Faster
 
-A turbocharged starter kit for rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for developers who want to move fast without compromising on quality.
+Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for developers who want to move fast without compromising on quality.
 
-## ⚡️ Instant Developer Experience
+## 🛠 Technologies
 
-- **Zero Config Setup**
-  - One-click setup with DevContainer, GitHub Codespaces, or Gitpod
-  - Turbopack for lightning-fast HMR
-  - Pre-configured development environment
+### Frontend
+- Next.js 15 (App Router)
+- TypeScript 5
+- TailwindCSS 3
+- Shadcn UI
+- Swagger UI
 
-- **Developer-First Workflow**
-  - Automatic code formatting and linting on save
-  - Git hooks enforce code quality
-  - Conventional commits with automatic validation
-  - Swagger UI for API documentation
+### Backend & Database
+- Nextjs API Routes & Server Action
+- Prisma ORM
+- Supabase Auth & PostgreSQL
 
-- **Rapid Development Features**
-  - Hot module replacement with Turbopack
-  - Type-safe API routes with built-in validation
-  - Auto-generated Swagger docs for APIs
-  - Automated API testing setup
+### Development Tools
+- Dev Containers
+- Format & Linting
+- Pre-commit hooks
+- Semantic Release
 
-## 🛠 Tech Stack
+## Core Features
+- **Dev Containers**: Pre-configured development environment with [Development Container](https://containers.dev/).
+- **Code Quality**: Pre-configured with [Biomejs](https://biomejs.dev/), [commitlint](https://commitlint.js.org/) (follow [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/)), pre-commit hooks with [Husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged).
+- **Common UI Components**: Shadcn UI components for rapid development, but you can use another components UI.
+- **Light/Dark Mode**: Theme switching based on user preference with next-themes.
+- **Multi Language**: Internationalization (i18n) support for multiple languages with next-intl.
+- **OAuth2**: Authentication with [Supabase](https://supabase.com/).
+- **API Documentation**: Generated API documentation using [Swagger UI](https://swagger.io/tools/swagger-ui/).
+- **Auto Release**: Automated release process with [Semantic Release](https://semantic-release.gitbook.io/semantic-release/).
+- **Vercel Deployment**: One-click deployment to [Vercel](https://vercel.com/).
 
-- **Frontend**: Next.js 15 with App Router
-- **UI**: Shadcn UI (Accessible, customizable components)
-- **Language**: TypeScript (Strict mode enabled)
-- **Database**: Prisma (Type-safe ORM)
-- **Auth**: Supabase (OAuth ready)
-- **API**: REST with Swagger documentation
-- **i18n**: next-intl (Type-safe translations)
+## Getting Started
 
-## 🏃‍♂️ Quick Start
-
-### 1. Cloud Development (Recommended)
+### Option 1: Cloud Development (Recommended)
 
 Choose your preferred cloud development environment:
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/holedev/starter-kit)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=holedev/starter-kit)
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/holedev/starter-kit)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/holedev/nextjs-faster)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=holedev/nextjs-faster)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/holedev/nextjs-faster)
 
-This will:
-- Clone the repository
-- Set up the development environment
-- Install dependencies
-- Start the development server
-- Configure all tools and extensions
+This automatically sets up your development environment with all dependencies installed. But remember setup your environment variables based on the platform you choose.
 
-### 2. Local Development (Alternative)
-
-If you prefer local development:
+### Option 2: Local Development
 
 1. **Clone & Install**
    ```bash
-   git clone git@github.com:holedev/starter-kit.git
-   cd starter-kit
-   pnpm i
-   ```
+   git clone git@github.com:holedev/nextjs-faster.git
+   cd nextjs-faster
+    
+   # use correct version node (optional)
+   nvm use
 
-2. **Set Environment**
-   ```bash
+   # use correct version pnpm (optional)
+   corepack enable pnpm
+  
+   # setup environment variables
    cp .env.example .env
-   ```
 
-3. **Start Coding**
-   ```bash
+   # install dependencies
+   pnpm i
+
+   # dev
    pnpm dev
    ```
 
-### 3. View API Documentation
-```
-http://localhost:3000/api-docs
-```
+## 🌐 Deployment
 
-## 💻 Developer Tools
+### Vercel (Recommended)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fholedev%2Fnextjs-faster&env=NEXT_PUBLIC_API_URL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,DATABASE_URL,DIRECT_URL&envDescription=You%20can%20get%20free%20API%20key%20in%20Supabase&envLink=https%3A%2F%2Fsupabase.com%2Fdocs%2Fguides%2Fauth%2Fserver-side%2Fnextjs&project-name=nextjs-faster&repository-name=nextjs-faster&demo-title=NextJS%20Faster&demo-description=Rapidly%20development%20with%20Next.js%2015%2C%20TypeScript%2C%20Shadcn%20UI%2C%20Prisma%20and%20Swagger.&demo-url=https%3A%2F%2Fnextjs-faster.vercel.app)
 
-### Command Center
+### Docker
 ```bash
-pnpm dev         # Start dev server (Turbopack enabled)
-pnpm build       # Production build
-pnpm start       # Start production server
-pnpm format:fix  # Fix code formatting
-pnpm lint:fix    # Fix linting issues
+docker compose up
 ```
 
-### Git Workflow
-```bash
-git checkout -b feature/my-feature  # New feature branch
-git add .                          # Stage changes
-git commit                         # Commit (auto-formats + lints)
-git push origin feature/my-feature # Push to remote
-```
 
 ## 📁 Project Structure
 
@@ -111,94 +97,6 @@ git push origin feature/my-feature # Push to remote
     ├── supabase/     # Auth config
     └── swagger/      # API documentation
 ```
-
-## 🚦 API Development
-
-1. Create your API route in `app/api/`
-2. Add route schema in `configs/swagger/config.ts`
-3. Auto-generated docs at `/api-docs`
-
-Example API route with Swagger docs:
-```typescript
-// app/api/animals/random/route.ts
-import { NextResponse } from "next/server";
-import { animals } from "@/configs/data/animals";
-
-export async function GET() {
-  const random = Math.floor(Math.random() * animals.length);
-  return NextResponse.json(animals[random]);
-}
-```
-
-## 🎯 Best Practices
-
-- **Code Quality**
-  - TypeScript strict mode
-  - ESLint + Prettier integration
-  - Pre-commit hooks
-  - Conventional commits
-
-- **Performance**
-  - Server Components by default
-  - Automatic code splitting
-  - Image optimization
-  - Optimized builds
-
-- **Security**
-  - Environment variables
-  - Type-safe database queries
-  - Protected API routes
-  - Auth middleware
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fholedev%2Fstarter-kit)
-
-#### Important: Vercel Size Limits
-Vercel has a size limit of 250MB for serverless functions. To avoid deployment issues:
-
-1. **Configure Build Output**
-   Add to your `next.config.ts`:
-   ```typescript
-   const config = {
-     output: 'standalone',
-     experimental: {
-       serverMinification: true,
-     },
-   };
-   ```
-
-2. **Optimize Dependencies**
-   - Use `dependencies` vs `devDependencies` correctly
-   - Remove unused dependencies
-   - Use dynamic imports for large libraries
-   - Consider using CDN for large assets
-
-3. **Monitor Build Size**
-   ```bash
-   pnpm build
-   # Check .next/standalone size before deploying
-   ```
-
-4. **Alternative Deployment Options**
-   If your app exceeds limits:
-   - Use Docker deployment
-   - Consider splitting into microservices
-   - Use edge functions for API routes
-
-### Docker
-```bash
-docker compose up
-```
-
-## 🤝 Contributing
-
-1. Fork and clone
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'feat: add amazing feature'`)
-4. Push branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
 
 ## 📝 License
 

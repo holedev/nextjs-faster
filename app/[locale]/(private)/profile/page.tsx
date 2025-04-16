@@ -1,11 +1,11 @@
-import { FormClient } from "./form.client";
-import { User as SupabaseUser } from "@supabase/supabase-js";
-import { getProfile } from "./actions";
-import { getTranslations } from "next-intl/server";
-import { Metadata } from "next";
-import { Suspense } from "react";
 import { LoadingComponent } from "@/components/custom/Loading";
+import type { User as SupabaseUser } from "@supabase/supabase-js";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
+import { getProfile } from "./actions";
 import { Profile } from "./dynamic";
+import { FormClient } from "./form.client";
 
 export const dynamic = "force-dynamic";
 

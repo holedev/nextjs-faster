@@ -1,8 +1,8 @@
-import Link from "next/link";
+import { BaseLayout } from "@/components/custom/BaseLayout";
 import { Button } from "@/components/ui/button";
 import { AlertTriangleIcon, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { BaseLayout } from "@/components/custom/BaseLayout";
+import Link from "next/link";
 
 export default function NotFound() {
   const t = useTranslations("defaultPage.notFound");

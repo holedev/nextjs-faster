@@ -43,8 +43,7 @@
 - Package Manager: pnpm@9.12.3
 
 ### Development Tools
-- ESLint 9.x
-- Prettier 3.3.3
+- Biome 1.9.4 (Linting & Formatting)
 - TypeScript 5.x
 - Husky for Git Hooks
 - lint-staged for Staged Files
@@ -72,8 +71,8 @@ DIRECT_URL=                      # Direct database connection URL
 ### 1. Local Development
 ```bash
 # Clone repository
-git clone git@github.com:holedev/starter-kit.git
-cd starter-kit
+git clone git@github.com:holedev/nextjs-faster.git
+cd nextjs-faster
 
 # Environment setup
 cp .env.example .env
@@ -102,10 +101,12 @@ docker compose up
   "dev": "next dev --turbopack",
   "build": "next build",
   "start": "next start",
-  "lint": "eslint",
-  "lint:fix": "eslint --fix",
-  "format": "prettier --check .",
-  "format:fix": "prettier --write .",
+  "lint": "biome lint",
+  "lint:fix": "biome lint --write .",
+  "format": "biome format",
+  "format:fix": "biome format --write .",
+  "check": "biome check",
+  "check:fix": "biome check --write .",
   "prepare": "husky",
   "lint-staged": "lint-staged",
   "commitlint": "commitlint --edit",
@@ -132,15 +133,12 @@ docker compose up
 ### Development Dependencies
 ```json
 {
-  "@commitlint/cli": "^19.5.0",
-  "@commitlint/config-conventional": "^19.5.0",
-  "@next/eslint-plugin-next": "^15.0.1",
-  "eslint": "^9",
-  "eslint-config-next": "15.1.6",
-  "eslint-config-prettier": "^9.1.0",
-  "eslint-plugin-jsx-a11y": "^6.10.2",
-  "prisma": "^6.3.1",
-  "typescript": "^5"
+  "@biomejs/biome": "1.9.4",
+  "@commitlint/cli": "^19.8.0",
+  "@commitlint/config-conventional": "^19.8.0",
+  "@next/eslint-plugin-next": "^15.3.0",
+  "prisma": "^6.6.0",
+  "typescript": "^5.8.3"
 }
 ```
 
@@ -202,8 +200,7 @@ Required environment variables:
 ```json
 "lint-staged": {
   "*.{js,jsx,ts,tsx}": [
-    "pnpm format:fix",
-    "pnpm lint:fix"
+    "pnpm check:fix"
   ]
 }
 ```
