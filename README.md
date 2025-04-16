@@ -36,38 +36,37 @@ Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for
 
 ## Getting Started
 
-### Option 1: Cloud Development (Recommended)
+### Option 1: Development Container (Recommended)
 
-Choose your preferred cloud development environment:
+Choose your preferred Development Container environment:
 
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/holedev/nextjs-faster)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=holedev/nextjs-faster)
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/holedev/nextjs-faster)
 
-This automatically sets up your development environment with all dependencies installed. But remember setup your environment variables based on the platform you choose.
+This automatically sets up your development environment with all dependencies installed. Remember setup your environment variables based on the platform you choose.
 
 ### Option 2: Local Development
 
-1. **Clone & Install**
-   ```bash
-   git clone git@github.com:holedev/nextjs-faster.git
-   cd nextjs-faster
-    
-   # use correct version node (optional)
-   nvm use
+```bash
+git clone git@github.com:holedev/nextjs-faster.git
+cd nextjs-faster
 
-   # use correct version pnpm (optional)
-   corepack enable pnpm
-  
-   # setup environment variables
-   cp .env.example .env
+# use correct version node (optional)
+nvm use
 
-   # install dependencies
-   pnpm i
+# use correct version pnpm (optional)
+corepack enable pnpm
 
-   # dev
-   pnpm dev
-   ```
+# setup environment variables
+cp .env.example .env
+
+# install dependencies
+pnpm i
+
+# dev
+pnpm dev
+```
 
 ## 🌐 Deployment
 
