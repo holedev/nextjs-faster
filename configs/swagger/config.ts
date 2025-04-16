@@ -75,9 +75,9 @@ export const getApiDocs = () => {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Starter Kit API Documentation",
+        title: "NextJS Faster API Documentation",
         version: "1.0.0",
-        description: "API documentation for the Starter Kit application"
+        description: "API documentation for the NextJS Faster application"
       },
       servers: [
         {

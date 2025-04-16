@@ -1,6 +1,6 @@
 services:
-  starter-kit:
-    container_name: starter-kit
+  nextjs-faster:
+    container_name: nextjs-faster
     build:
       context: .
       dockerfile: Dockerfile

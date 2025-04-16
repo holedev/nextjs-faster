@@ -21,6 +21,7 @@ Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for
 - Format & Linting
 - Pre-commit hooks
 - Semantic Release
+- Some rules & memory for Cline, RooCode
 
 ## Core Features
 - **Dev Containers**: Pre-configured development environment with [Development Container](https://containers.dev/).

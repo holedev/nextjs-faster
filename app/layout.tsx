@@ -4,10 +4,10 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Starter Kit",
-    default: "Starter Kit"
+    template: "%s | NextJS Faster",
+    default: "NextJS Faster"
   },
-  description: "Starter Kit"
+  description: "NextJS Faster"
 };
 
 type Props = {

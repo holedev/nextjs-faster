@@ -1,12 +1,12 @@
 # Project Brief
 
 ## Project Overview
-This is a modern web application built with Next.js 14, designed as a starter kit for scalable applications. The project implements best practices and a comprehensive set of features to serve as a foundation for building production-ready web applications.
+This is a modern web application built with Next.js 15, designed as a kit for scalable applications. The project implements best practices and a comprehensive set of features to serve as a foundation for building production-ready web applications.
 
 ## Core Requirements
 
 ### Technical Foundation
-- Next.js 14 with App Router
+- Next.js 15 with App Router
 - TypeScript for type safety
 - TailwindCSS for styling
 - Shadcn/UI component library

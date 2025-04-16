@@ -1,10 +1,10 @@
-FROM node:20.15.1-alpine AS base
+FROM node:22-alpine AS base
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat python3 make g++ gcc
 WORKDIR /app
 
-COPY prisma/ /app/prisma/
+COPY configs/prisma/ /app/configs/prisma/
 COPY package.json pnpm-lock.yaml* ./
 RUN \
   corepack enable pnpm && pnpm i

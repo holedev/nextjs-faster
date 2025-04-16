@@ -5,7 +5,7 @@ volumes:
 
 services:
   app:
-    container_name: starter-kit
+    container_name: nextjs-faster
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile

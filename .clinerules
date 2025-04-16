@@ -42,10 +42,50 @@ DO NOT read or modify:
 - Node.js version >= 20
 - PNPM version >= 9
 - Use Turbopack in development (`next dev --turbopack`)
-- Run `pnpm format:fix` and `pnpm lint:fix` before commits
-- Commits are automatically linted with commitlint
+- Use Biome for linting and formatting:
+  - Run `pnpm format:fix` to format code
+  - Run `pnpm lint:fix` to fix linting issues
+  - Run `pnpm check:fix` to check and fix all issues
+- Commits are checked with Biome via lint-staged
+- Files are automatically formatted before commits
+- Prisma schema location: ./configs/prisma/schema.prisma
+- Remember **DONT** write in 'main' branch, write code in 'dev' branch or create new branch if need
+- Use rebase for merge branch
+
+## Manager Package
+
+- Use pnpm instead of npm
+- shadcn-ui is old name of lib, use shadcn instead of
+
+## Workflow
+
+- When create a new api route, remember create swagger api document
+- When create new UI component, priority to use shadcn@latest before create new component
+- When create new page, priority to use i18n with two languages: English and Vietnamese
+
+## Development Environment
+
+- Node.js version >= 20
+- PNPM version >= 9
+- Use Turbopack in development (`next dev --turbopack`)
+- Use Biome for linting and formatting:
+  - Run `pnpm format:fix` to format code
+  - Run `pnpm lint:fix` to fix linting issues
+  - Run `pnpm check:fix` to check and fix all issues
+- Commits are checked with Biome via lint-staged
+- Files are automatically formatted before commits
 - Prisma schema location: ./configs/prisma/schema.prisma
 - Postinstall runs `prisma generate`
+
+## Code Style & Formatting
+
+- Follow Biome's default code style
+- Use consistent formatting across all files
+- Run Biome checks before committing:
+  - `pnpm format` to check formatting
+  - `pnpm lint` to check linting
+  - `pnpm check` to perform all checks
+- Fix any Biome warnings or errors before committing
 
 ## Project Structure
 

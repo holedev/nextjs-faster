@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const techs: string[] = ["NextJS 15", "Shadcn", "TailwindCSS 3", "Prisma 6"];
+const techs: string[] = ["NextJS 15", "TailwindCSS 3", "Shadcn", "Prisma 6", "Supabase", "Swagger"];
 
 export default async function Page({ params }: PageType) {
   const { locale } = await params;

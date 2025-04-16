@@ -1,5 +1,5 @@
 {
-  "name": "Starter Kit",
+  "name": "NextJS Faster",
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/home/node/workspaces",
