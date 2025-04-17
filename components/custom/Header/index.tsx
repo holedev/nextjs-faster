@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className='shadow-md border-b-2'>
-      <div className='container mx-auto px-4 py-4 flex justify-between items-center'>
+      <div className='container mx-auto px-4 py-4 flex justify-between items-center flex-col gap-4 md:flex-row'>
         <div className='flex items-center uppercase font-bold text-xl'>
           <Link prefetch={true} href='/'>
             {tHeader("logoName")}

@@ -23,7 +23,7 @@ const UserList = async () => {
   const nicknames = data?.payload as Array<NicknameType>;
 
   return (
-    <div className='flex flex-col justify-center items-center space-y-2'>
+    <div className='flex flex-col justify-center items-center gap-6'>
       <div className='text-center'>
         <h2 className='text-xl uppercase font-bold'>{t("title")}</h2>
         <p className='text-sm text-muted-foreground italic'>
@@ -33,7 +33,7 @@ const UserList = async () => {
           </Link>
         </p>
       </div>
-      <div className='flex flex-wrap space-x-2'>
+      <div className='flex flex-wrap gap-2 justify-center'>
         {nicknames?.map((nickname, _) => {
           const randomBackgroundColor = getRandomPastelColor();
 
