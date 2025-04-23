@@ -8,7 +8,7 @@ function ApiDoc() {
       <Link href='/' className='text-2xl font-bold mb-4'>
         NextJS Faster
       </Link>
-      <div className='swagger-ui-wrapper bg-white rounded-lg shadow'>
+      <div className='swagger-ui-wrapper bg-white rounded-lg shadow-sm'>
         <SwaggerUI url='/api/docs' />
       </div>
     </div>

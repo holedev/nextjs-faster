@@ -7,7 +7,7 @@ Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for
 ### Frontend
 - Next.js 15 (App Router)
 - TypeScript 5
-- TailwindCSS 3
+- TailwindCSS 4 (Latest)
 - Shadcn UI
 - Swagger UI
 

@@ -1,164 +1,58 @@
 # Active Context
 
-## Current State
-
-### Project Status
-- Initial setup of Next.js faster
-- Core features implemented
-- Memory bank system established
-- Docker containerization ready
-- Deployment configurations set
-
-### Active Components
-- Authentication system with Supabase
-- Internationalization with next-intl
-- Theme system with next-themes
-- UI components with shadcn/ui
-- Database integration with Prisma
-- Error handling system with useHandleError
-- Standardized response types
-- Docker development environment
-- VS Code devcontainer support
-
-### Environment Setup
-- Development environment configured
-- Biome linting and formatting rules established
-- Git hooks configured
-- Database migrations ready
-- Docker compose configured
-- Environment variables documented
-
 ## Recent Changes
 
-### Initial Setup
-1. Project structure established
-2. Core dependencies installed
-3. Basic configuration completed
-4. Memory bank system initialized
-5. Docker containerization implemented
+### Tailwind CSS v4 Upgrade (2025-04-23)
+- Upgraded from Tailwind CSS v3.4.17 to v4.0.0
+- Changes made:
+  1. Package Updates:
+     ```json
+     {
+       "postcss": "^8.4.38",
+       "tailwindcss": "^4"
+     }
+     ```
+  2. Configuration Updates:
+     - Added new v4 features in tailwind.config.ts:
+       - Added `prefix: ""`
+       - Added `future: { hoverOnlyWhenSupported: true }`
+       - Using `satisfies Config` type assertion
+     - Maintained existing theme configuration for shadcn UI compatibility
+  3. Verified globals.css compatibility with v4
 
-### Configuration
-1. Biome setup for linting and formatting
-2. Commit message linting
-3. TypeScript configuration
-4. Tailwind setup
-5. Docker multi-stage builds
-6. Development container setup
+### Current Status
+- All shadcn UI components working with Tailwind v4
+- Dark mode functionality preserved
+- Custom theme configurations maintained
+- CSS utilities functioning as expected
 
-### Feature Implementation
-1. Authentication flow
-2. Internationalization system
-3. Theme switching
-4. Component library integration
-5. Docker development workflow
-6. Vercel deployment setup
+## Active Decisions
 
-## Current Focus
+### Styling & Theme
+- Continue using shadcn UI components with Tailwind v4
+- Maintain current color scheme and design tokens
+- Preserve dark mode implementation
 
-### Immediate Tasks
-1. Security Audit
-   - Review authentication implementation
-   - Check API endpoint security
-   - Verify Docker security practices
-   - Validate environment variable usage
-
-2. Documentation
-   - Complete technical documentation
-   - Update deployment guides
-   - Document Docker workflows
-   - Environment setup instructions
-
-3. Testing Strategy
-   - Implement standardized error handling tests
-   - Unit tests for hooks and utilities
-   - Integration tests for auth flows
-   - API endpoint testing
-   - Error boundary testing
-   - Docker testing workflow
-   - CI/CD pipeline setup
-
-4. Development Workflow
-   - Optimize Docker builds
-   - Streamline development setup
-   - Improve hot reloading
-   - Enhance VS Code integration
-
-### Active Decisions
-1. Authentication Strategy
-   - Using Supabase for auth
-   - Implementing protected routes
-   - Managing user sessions
-   - Social OAuth integration
-
-2. Data Management
-   - Prisma for database operations
-   - Type-safe queries
-   - Migration strategy
-   - Connection pooling
-
-3. Development Environment
-   - Docker-first approach
-   - VS Code integration
-   - Development/Production parity
-   - Environment variable management
-
-4. Deployment Strategy
-   - Vercel as primary platform
-   - Docker container options
-   - Environment configuration
-   - CI/CD automation
+### Development Workflow
+- Using Biome for code formatting
+- Following conventional commits
+- Maintaining TypeScript strict mode
 
 ## Next Steps
 
-### Short Term
-1. Infrastructure
-   - Optimize Docker builds
-   - Setup CI/CD pipelines
-   - Configure automated testing
-   - Implement monitoring
+### Immediate Tasks
+- Monitor for any styling inconsistencies with Tailwind v4
+- Test responsive layouts thoroughly
+- Verify component animations
+- Check dark mode transitions
 
-2. Performance
-   - Image optimization
-   - Code splitting
-   - Docker layer caching
-   - Load time improvements
+### Future Considerations
+- Explore new Tailwind v4 features
+- Consider updating shadcn UI when new versions released
+- Monitor PostCSS updates
+- Consider adding more utility classes as needed
 
-3. Developer Experience
-   - Enhance Docker workflows
-   - Improve VS Code integration
-   - Streamline environment setup
-   - Update documentation
-
-### Medium Term
-1. Feature Additions
-   - Enhanced user management
-   - Role-based access control
-   - API documentation
-   - Advanced authentication options
-
-2. Development Tools
-   - Custom CLI tools
-   - Generator scripts
-   - Development utilities
-   - Testing frameworks
-
-3. Monitoring
-   - Error tracking
-   - Performance monitoring
-   - Docker container metrics
-   - Usage analytics
-
-### Long Term
-1. Scalability
-   - Database optimization
-   - Cache implementation
-   - Load balancing
-   - Container orchestration
-
-2. Feature Expansion
-   - Additional auth providers
-   - Enhanced API capabilities
-   - Extended UI components
-   - Advanced internationalization
-
-This context reflects the current state of development and will be updated as work progresses.
+## Current Focus
+- Ensuring stability with Tailwind v4 upgrade
+- Maintaining consistent styling across components
+- Preserving performance optimizations

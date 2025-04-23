@@ -1,231 +1,149 @@
-# Technical Context
+# Technology Context
 
-## Core Technologies
+## Framework & Libraries
 
-### Frontend Framework
-- Next.js 15.1.6
-- React 19.0.0
-- TypeScript 5.x
+### Next.js
+- Version: ^15.3.0
+- Using App Router
+- TypeScript support
+- Server components with React Server Components (RSC)
 
-### Styling
-- TailwindCSS 3.4.1
-- Tailwind Merge
-- Class Variance Authority
-- Tailwind Animate
+### Tailwind CSS
+- Version: ^4.0.0
+- Upgraded from v3.4.17 to v4
+- Configuration in tailwind.config.ts
+- Changes made during upgrade:
+  - Added `prefix: ""` option
+  - Added `future: { hoverOnlyWhenSupported: true }` for better touch device support
+  - Using the new `satisfies Config` type assertion
+  - Maintained custom theme configuration for shadcn UI compatibility
 
 ### UI Components
-- Radix UI Components
-  - Avatar
-  - Dialog
-  - Dropdown Menu
-  - Icons
-  - Label
-  - Select
-  - Separator
-  - Slot
-  - Toast
-  - Tooltip
+- shadcn UI (using latest components)
+- Radix UI primitives for accessible components
+- Dark mode support via next-themes
 
-### Backend & Database
-- Prisma 6.3.1
-- Supabase
-  - SSR Integration
-  - Supabase JS Client
+### State Management & Data Fetching
+- Server components for data fetching
+- React Server Components (RSC)
+- Server Actions for form handling
 
-### Internationalization
-- next-intl 3.23.5
+### Authentication & Backend
+- Supabase for authentication
+- Prisma for database operations
+- API documentation with Swagger
 
-## Development Environment
+### Development Tools
+- pnpm for package management
+- Biome for linting and formatting
+- Husky for git hooks
+- Conventional commits
+- TypeScript for type safety
+
+## Environment Setup
 
 ### Node.js Requirements
 - Node.js >= 20
 - PNPM >= 9
-- Package Manager: pnpm@9.12.3
 
-### Development Tools
-- Biome 1.9.4 (Linting & Formatting)
-- TypeScript 5.x
-- Husky for Git Hooks
-- lint-staged for Staged Files
-- commitlint for Commit Messages
-
-### Docker Environment
-- Base Image: node:20.15.1-alpine
-- Multi-stage build process
-- Development container support
-- Production optimization
-
-### Environment Variables
-```env
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=        # Supabase project URL
-NEXT_PUBLIC_SUPABASE_ANON_KEY=   # Supabase anonymous key
-
-# Database Configuration
-DATABASE_URL=                     # Primary database connection URL
-DIRECT_URL=                      # Direct database connection URL
-```
-
-## Installation Methods
-
-### 1. Local Development
-```bash
-# Clone repository
-git clone git@github.com:holedev/nextjs-faster.git
-cd nextjs-faster
-
-# Environment setup
-cp .env.example .env
-# Configure environment variables
-
-# Install dependencies
-pnpm i
-
-# Start development server
-pnpm dev
-```
-
-### 2. Docker Development
-```bash
-# Start with Docker Compose
-docker compose up
-
-# Or use VS Code Dev Containers
-# 1. Open in VS Code
-# 2. Reopen in Container
-```
-
-### Scripts
-```json
-"scripts": {
-  "dev": "next dev --turbopack",
-  "build": "next build",
-  "start": "next start",
-  "lint": "biome lint",
-  "lint:fix": "biome lint --write .",
-  "format": "biome format",
-  "format:fix": "biome format --write .",
-  "check": "biome check",
-  "check:fix": "biome check --write .",
-  "prepare": "husky",
-  "lint-staged": "lint-staged",
-  "commitlint": "commitlint --edit",
-  "postinstall": "prisma generate"
-}
-```
-
-## Dependencies
-
-### Production Dependencies
-```json
-{
-  "@prisma/client": "6.3.1",
-  "@supabase/ssr": "^0.5.1",
-  "@supabase/supabase-js": "^2.45.6",
-  "next": "15.1.6",
-  "next-intl": "^3.23.5",
-  "next-themes": "^0.4.4",
-  "react": "19.0.0",
-  "react-dom": "19.0.0"
-}
-```
-
-### Development Dependencies
-```json
-{
-  "@biomejs/biome": "1.9.4",
-  "@commitlint/cli": "^19.8.0",
-  "@commitlint/config-conventional": "^19.8.0",
-  "@next/eslint-plugin-next": "^15.3.0",
-  "prisma": "^6.6.0",
-  "typescript": "^5.8.3"
-}
-```
-
-## Deployment Options
-
-### 1. Vercel Deployment
-- One-click deployment
-- Automatic environment setup
-- Required environment variables:
-  - NEXT_PUBLIC_SUPABASE_URL
-  - NEXT_PUBLIC_SUPABASE_ANON_KEY
-  - DATABASE_URL
-  - DIRECT_URL
-
-### 2. Docker Deployment
-- Multi-stage build optimization
-- Production-ready container
-- Environment variable management
-- Security hardening:
-  - Non-root user
-  - Minimal base image
-  - Secure defaults
-
-## Technical Constraints
-
-### Browser Support
-- Modern browsers
-- ES6+ JavaScript support
-- CSS Grid and Flexbox support
-
-### Performance Requirements
-- Fast page loads with SSR
-- Optimized client-side navigation
-- Efficient data fetching
-
-### Security Considerations
-- Secure authentication flows
-- Protected API routes
-- Type-safe database operations
-- Environment variable management
-- Docker security best practices
-
-## Development Setup
-
-### Environment Variables
-Required environment variables:
-- Database connection
-- Supabase configuration
-- API endpoints
-- Authentication settings
-
-### Database Setup
-- Prisma as ORM
-- Schema location: ./configs/prisma/schema.prisma
-- Migration management
-- Type-safe queries
+### Development Commands
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm format:fix` - Fix formatting issues
+- `pnpm lint:fix` - Fix linting issues
+- `pnpm check:fix` - Run all checks and fixes
 
 ### Code Quality
-```json
-"lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
-    "pnpm check:fix"
-  ]
-}
-```
+- Using Biome for consistent code formatting
+- Automatic formatting before commits
+- TypeScript for static typing
 
-### Build Process
-1. Install dependencies with pnpm
-2. Generate Prisma client
-3. Build Next.js application
-4. Environment configuration
-5. Database migrations
+## Configuration Files
 
-### Docker Build Process
-1. Dependencies stage
-   - System dependencies
-   - Node modules
-   - Prisma client
+### Key Configuration Files
+- `tailwind.config.ts` - Tailwind CSS configuration
+- `next.config.ts` - Next.js configuration
+- `biome.json` - Biome configuration
+- `.env.example` - Environment variables template
 
-2. Builder stage
-   - Application build
-   - Static file generation
-   - Standalone output
+### Environment Variables
+- Stored in .env (not committed)
+- Template provided in .env.example
+- Loaded via Next.js built-in support
 
-3. Runner stage
-   - Production optimization
-   - Security hardening
-   - Environment setup
+## Directory Structure
 
-This technical context provides the foundation for development decisions and should be updated as dependencies or technical requirements change.
+### Core Directories
+- `app/` - App Router pages and layouts
+- `components/` - React components
+- `configs/` - Configuration files
+- `public/` - Static assets
+- `utils/` - Utility functions
+
+### Component Organization
+- `components/ui/` - shadcn UI components
+- `components/custom/` - Custom components
+- Server/Client component separation with .client.tsx suffix
+
+### Configuration Organization
+- `configs/i18n/` - Internationalization setup
+- `configs/messages/` - Translation messages
+- `configs/prisma/` - Database configuration
+- `configs/supabase/` - Authentication setup
+- `configs/swagger/` - API documentation
+
+## Styling
+
+### CSS Architecture
+- Tailwind CSS v4 for utility-first styling
+- Global styles in `app/globals.css`
+- CSS variables for theming
+- Dark mode support
+- Consistent border radius and spacing scale
+
+### Theme Configuration
+- Custom color schemes for light/dark modes
+- Design tokens as CSS variables
+- Responsive container queries
+- Custom animation utilities
+
+## Best Practices
+
+### Code Organization
+- Clear separation of concerns
+- Modular component architecture
+- Type-safe development
+- Consistent file naming
+
+### Performance
+- Server Components by default
+- Optimized images with Sharp
+- Lazy loading where appropriate
+- Route-based code splitting
+
+### Accessibility
+- ARIA attributes
+- Keyboard navigation
+- Screen reader support
+- Color contrast compliance
+
+### Internationalization
+- Multi-language support (English/Vietnamese)
+- Route groups for localization
+- Translation management
+- RTL support ready
+
+## Version Control
+
+### Git Workflow
+- Feature branches
+- Conventional commits
+- Pull request workflow
+- Automated checks on commits
+
+### CI/CD
+- Automated linting
+- Type checking
+- Format checking
+- Build verification
