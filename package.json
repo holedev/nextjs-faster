@@ -38,7 +38,7 @@
     "@supabase/supabase-js": "^2.49.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.453.0",
+    "lucide-react": "^0.511.0",
     "next": "^15.3.0",
     "next-intl": "^3.26.5",
     "next-swagger-doc": "^0.4.1",
