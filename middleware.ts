@@ -1,6 +1,6 @@
-import { routing } from "@/configs/i18n/routing";
-import createMiddleware from "next-intl/middleware";
 import type { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "@/configs/i18n/routing";
 import { updateSession } from "./configs/supabase/middleware";
 
 const handleI18nRouting = createMiddleware(routing);

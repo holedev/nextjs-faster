@@ -38,7 +38,12 @@
         "files.associations": { "*.css": "tailwindcss" },
         "files.exclude": { "specialized": true },
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
         "typescript.tsdk": "homepage/node_modules/typescript/lib",
         "typescript.updateImportsOnFileMove.enabled": "always",
         "typescript.inlayHints.functionLikeReturnTypes.enabled": true,

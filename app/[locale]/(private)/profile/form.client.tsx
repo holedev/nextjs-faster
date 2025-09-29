@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useHandleError } from "@/hooks/useHandleError";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useHandleError } from "@/hooks/use-handle-error";
 import { updateNickname } from "./actions";
 
 type FormClientType = { nickname: string };
@@ -28,13 +28,13 @@ const FormClient = ({ nickname }: FormClientType) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex items-center space-x-2'>
+    <form className='flex items-center space-x-2' onSubmit={handleSubmit}>
       <Input
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        name='nickname'
-        placeholder={t("placeholer")}
         className='text-center'
+        name='nickname'
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={t("placeholer")}
+        value={value}
       />
       <Button type='submit'>{t("submit")}</Button>
     </form>

@@ -1,8 +1,8 @@
-import type { ResponseType, SuccessResponseType } from "@/types/response";
 import { useTranslations } from "next-intl";
+import type { ResponseType, SuccessResponseType } from "@/types/response";
 import { useToast } from "./use-toast";
 
-type handleErrorType = {
+type HandleErrorType = {
   cb: () => Promise<ResponseType>;
   onSuccess?: ({ data }: { data: SuccessResponseType }) => void;
   withSuccessNotify?: boolean;
@@ -12,7 +12,13 @@ const useHandleError = () => {
   const { toast } = useToast();
   const t = useTranslations("common.notify");
 
-  const handleErrorClient = async ({ cb, onSuccess = () => {}, withSuccessNotify = true }: handleErrorType) => {
+  const handleErrorClient = async ({
+    cb,
+    onSuccess = () => {
+      /* no-op */
+    },
+    withSuccessNotify = true
+  }: HandleErrorType) => {
     try {
       const { error, data } = await cb();
 
@@ -34,7 +40,6 @@ const useHandleError = () => {
 
       onSuccess({ data: data ?? {} });
     } catch (error) {
-      console.error("[useHandleError.tsx:34] ", error);
       if (error instanceof Error) {
         toast({
           title: t("error.unknownError"),

@@ -1,9 +1,9 @@
+import { getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "@/configs/i18n/routing";
 import { _ROUTE_PROFILE } from "@/constants/route";
-import { getRandomPastelColor, handleDatetime } from "@/utils/handleDatetime";
-import { getTranslations } from "next-intl/server";
+import { getRandomPastelColor, handleDatetime } from "@/utils/handle-datetime";
 import { getAllNickname } from "./actions";
 
 type NicknameType = {
@@ -20,27 +20,27 @@ const UserList = async () => {
   if (error) {
     throw new Error(error.message);
   }
-  const nicknames = data?.payload as Array<NicknameType>;
+  const nicknames = data?.payload as NicknameType[];
 
   return (
-    <div className='flex flex-col justify-center items-center gap-6'>
+    <div className='flex flex-col items-center justify-center gap-6'>
       <div className='text-center'>
-        <h2 className='text-xl uppercase font-bold'>{t("title")}</h2>
-        <p className='text-sm text-muted-foreground italic'>
+        <h2 className='font-bold text-xl uppercase'>{t("title")}</h2>
+        <p className='text-muted-foreground text-sm italic'>
           {t("description")}{" "}
-          <Link href={_ROUTE_PROFILE} className='text-primary hover:underline'>
+          <Link className='text-primary hover:underline' href={_ROUTE_PROFILE}>
             {tCommonText("here")}.
           </Link>
         </p>
       </div>
-      <div className='flex flex-wrap gap-2 justify-center'>
+      <div className='flex flex-wrap justify-center gap-2'>
         {nicknames?.map((nickname, _) => {
           const randomBackgroundColor = getRandomPastelColor();
 
           return (
             <Tooltip key={nickname.content}>
               <TooltipTrigger>
-                <Badge style={{ background: randomBackgroundColor }} className='text-md rounded-md'>
+                <Badge className='rounded-md text-md' style={{ background: randomBackgroundColor }}>
                   {nickname.content}
                 </Badge>
               </TooltipTrigger>

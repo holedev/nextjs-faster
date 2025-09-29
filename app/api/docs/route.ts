@@ -1,6 +1,6 @@
-import { getApiDocs } from "@/configs/swagger/config";
 import { NextResponse } from "next/server";
+import { getApiDocs } from "@/configs/swagger/config";
 
-export async function GET() {
+export function GET() {
   return NextResponse.json(getApiDocs());
 }

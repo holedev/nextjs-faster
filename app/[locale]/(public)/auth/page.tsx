@@ -1,11 +1,10 @@
-import type { locale } from "@/types/global";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { locale } from "@/types/global";
 import { LoginClient } from "./auth.client";
 
 type PageType = { params: Promise<{ locale: locale }> };
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const t = await getTranslations("auth");
   return {
     title: t("title")
@@ -13,11 +12,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page({ params }: PageType) {
-  const { locale } = await params;
+  const locale = (await params).locale;
   setRequestLocale(locale);
 
   return (
-    <section className='h-full flex justify-center items-center'>
+    <section className='flex h-full items-center justify-center'>
       <LoginClient />
     </section>
   );

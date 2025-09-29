@@ -1,4 +1,4 @@
-import type en from "@/configs/messages/en.json";
+import type en from "@/configs/messages/en.json" with { type: "json" };
 
 type Messages = typeof en;
 

@@ -1,5 +1,5 @@
-import { createClientSSR } from "@/configs/supabase/server";
 import { NextResponse } from "next/server";
+import { createClientSsr } from "@/configs/supabase/server";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const next = searchParams.get("next") ?? "/";
 
   if (code) {
-    const supabase = await createClientSSR();
+    const supabase = await createClientSsr();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
       const forwardedHost = request.headers.get("x-forwarded-host");

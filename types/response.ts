@@ -5,7 +5,7 @@ export type ErrorResponseType = {
 
 export type SuccessResponseType = {
   status?: number;
-  payload?: string | object | null | Array<object>;
+  payload?: string | object | null | object[];
 };
 
 export type ResponseType = {

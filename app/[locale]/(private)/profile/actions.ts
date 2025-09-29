@@ -1,8 +1,8 @@
 "use server";
 
-import { prisma } from "@/configs/prisma/db";
-import { handleErrorServerWithAuth } from "@/utils/handleErrorServer";
 import { revalidateTag, unstable_cache } from "next/cache";
+import { prisma } from "@/configs/prisma/db";
+import { handleErrorServerWithAuth } from "@/utils/handle-error-server";
 
 const getProfile = async () =>
   handleErrorServerWithAuth({
@@ -14,8 +14,6 @@ const getProfile = async () =>
               authorId: user?.id
             }
           });
-
-          console.info("[actions.ts:18] ", "refetch user profile", user?.email);
 
           return {
             ...user,
@@ -30,7 +28,9 @@ const getProfile = async () =>
 const updateNickname = async (nickname: string) =>
   handleErrorServerWithAuth({
     cb: async ({ user }) => {
-      if (!user) throw new Error("User Not Found!");
+      if (!user) {
+        throw new Error("User Not Found!");
+      }
 
       const existingNickname = await prisma.nickname.findFirst({
         where: { content: nickname }

@@ -2,14 +2,12 @@ import type { ReactNode } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-const PageLayout = ({ children }: { children: ReactNode }) => {
-  return (
-    <>
-      <Header />
-      <main className='flex-1 container'>{children}</main>
-      <Footer />
-    </>
-  );
-};
+const PageLayout = ({ children }: { children: ReactNode }) => (
+  <>
+    <Header />
+    <main className='container flex-1'>{children}</main>
+    <Footer />
+  </>
+);
 
 export { PageLayout };

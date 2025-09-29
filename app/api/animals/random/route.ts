@@ -1,5 +1,5 @@
-import { type Animal, animals } from "@/configs/data/animals";
 import { type NextRequest, NextResponse } from "next/server";
+import { type Animal, animals } from "@/configs/data/animals";
 
 /**
  * @swagger
@@ -53,7 +53,7 @@ import { type NextRequest, NextResponse } from "next/server";
  *       400:
  *         description: Bad request - Invalid animal type
  */
-export async function GET(request: NextRequest) {
+export function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const type = searchParams.get("type") as Animal["type"] | null;
@@ -63,7 +63,10 @@ export async function GET(request: NextRequest) {
       filteredAnimals = animals.filter((animal) => animal.type === type);
       if (filteredAnimals.length === 0) {
         return NextResponse.json(
-          { error: { message: `No animals found of type: ${type}` }, data: null },
+          {
+            error: { message: `No animals found of type: ${type}` },
+            data: null
+          },
           { status: 400 }
         );
       }

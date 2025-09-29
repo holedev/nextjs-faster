@@ -1,5 +1,9 @@
 "use client";
 
+import type { User } from "@supabase/supabase-js";
+import { redirect } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -10,10 +14,6 @@ import {
 import { useRouter } from "@/configs/i18n/routing";
 import { createClient } from "@/configs/supabase/client";
 import { _ROUTE_AUTH, _ROUTE_PROFILE } from "@/constants/route";
-import type { User } from "@supabase/supabase-js";
-import { useTranslations } from "next-intl";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
 import { Button } from "../../ui/button";
 import { Skeleton } from "../../ui/skeleton";
 
@@ -62,7 +62,7 @@ const UserProfile = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
-    <Button variant='outline' onClick={() => redirect(_ROUTE_AUTH)}>
+    <Button onClick={() => redirect(_ROUTE_AUTH)} variant='outline'>
       {t("login")}
     </Button>
   );

@@ -1,8 +1,8 @@
 "use server";
 
-import { prisma } from "@/configs/prisma/db";
-import { handleErrorServerNoAuth } from "@/utils/handleErrorServer";
 import { unstable_cache } from "next/cache";
+import { prisma } from "@/configs/prisma/db";
+import { handleErrorServerNoAuth } from "@/utils/handle-error-server";
 
 const getAllNickname = async () =>
   handleErrorServerNoAuth({
@@ -14,8 +14,6 @@ const getAllNickname = async () =>
             updatedAt: true
           }
         });
-
-        console.info("[actions.ts:16] ", "refetch all nicknames");
 
         return nicknames;
       },

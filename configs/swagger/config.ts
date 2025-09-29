@@ -1,6 +1,6 @@
 import { createSwaggerSpec } from "next-swagger-doc";
 
-interface OperationObject {
+type OperationObject = {
   summary?: string;
   description?: string;
   parameters?: Array<{
@@ -26,9 +26,9 @@ interface OperationObject {
       };
     };
   };
-}
+};
 
-interface PathObject {
+type PathObject = {
   get?: OperationObject;
   post?: OperationObject;
   put?: OperationObject;
@@ -36,9 +36,9 @@ interface PathObject {
   patch?: OperationObject;
   options?: OperationObject;
   head?: OperationObject;
-}
+};
 
-interface OpenAPISpec {
+type OpenApiSpec = {
   openapi: string;
   info: {
     title: string;
@@ -56,14 +56,15 @@ interface OpenAPISpec {
     parameters?: Record<string, unknown>;
     securitySchemes?: Record<string, unknown>;
   };
-}
+};
 
 // Cache the generated spec to avoid re-computation on every request
 const cachedSpec = {
-  current: null as OpenAPISpec | null
+  current: null as OpenApiSpec | null
 };
 
 export const getApiDocs = () => {
+  const _milliseconds = 1000;
   // Return cached spec if available
   if (cachedSpec.current) {
     return cachedSpec.current;
@@ -88,10 +89,10 @@ export const getApiDocs = () => {
     },
     // Add cache settings
     cache: {
-      maxAge: 60 * 60 * 1000, // 1 hour
+      maxAge: 60 * 60 * _milliseconds, // 1 hour
       cacheControl: "public, max-age=3600"
     }
-  }) as OpenAPISpec;
+  }) as OpenApiSpec;
 
   // Cache the generated spec
   cachedSpec.current = generatedSpec;

@@ -1,10 +1,10 @@
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Suspense } from "react";
 import { LoadingComponent } from "@/components/custom/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { locale } from "@/types/global";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { UserList } from "./dynamic";
 
 type PageType = {
@@ -25,10 +25,10 @@ export default async function Page({ params }: PageType) {
   setRequestLocale(locale);
 
   return (
-    <section className='h-full p-4 space-y-4'>
-      <div className='flex flex-wrap gap-2 justify-center items-center'>
+    <section className='h-full space-y-4 p-4'>
+      <div className='flex flex-wrap items-center justify-center gap-2'>
         {techs.map((tech, _) => (
-          <Badge key={tech} className='text-xl rounded-md'>
+          <Badge className='rounded-md text-xl' key={tech}>
             {tech}
           </Badge>
         ))}

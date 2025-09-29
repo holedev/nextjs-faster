@@ -1,9 +1,9 @@
 "use client";
 
-import { Skeleton } from "@/components/ui/skeleton";
-import { usePathname, useRouter } from "@/configs/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { usePathname, useRouter } from "@/configs/i18n/routing";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
 
 const LocaleSelect = () => {
@@ -24,7 +24,7 @@ const LocaleSelect = () => {
   }
 
   return (
-    <Select onValueChange={handleChangeLocale} defaultValue={locale}>
+    <Select defaultValue={locale} onValueChange={handleChangeLocale}>
       <SelectTrigger className='w-[180px]'>
         <SelectValue placeholder='Select' />
       </SelectTrigger>

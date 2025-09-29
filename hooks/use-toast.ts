@@ -1,12 +1,14 @@
+/** biome-ignore-all lint/performance/noNamespaceImport: <lib> */
+/** biome-ignore-all lint/style/useDefaultSwitchClause: <lib> */
+/** biome-ignore-all lint/style/useNamingConvention: <lib> */
 "use client";
 
-// Inspired by react-hot-toast library
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 
 const TOAST_LIMIT = 1;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_REMOVE_DELAY = 1_000_000;
 
 type ToasterToast = ToastProps & {
   id: string;
@@ -15,7 +17,6 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
   UPDATE_TOAST: "UPDATE_TOAST",
@@ -50,9 +51,9 @@ type Action =
       toastId?: ToasterToast["id"];
     };
 
-interface State {
+type State = {
   toasts: ToasterToast[];
-}
+};
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 
@@ -65,7 +66,7 @@ const addToRemoveQueue = (toastId: string) => {
     toastTimeouts.delete(toastId);
     dispatch({
       type: "REMOVE_TOAST",
-      toastId: toastId
+      toastId
     });
   }, TOAST_REMOVE_DELAY);
 
@@ -157,13 +158,15 @@ function toast({ ...props }: Toast) {
       id,
       open: true,
       onOpenChange: (open) => {
-        if (!open) dismiss();
+        if (!open) {
+          dismiss();
+        }
       }
     }
   });
 
   return {
-    id: id,
+    id,
     dismiss,
     update
   };

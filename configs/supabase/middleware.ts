@@ -1,7 +1,7 @@
-import { _LOCALES } from "@/constants/lang";
-import { _ROUTE_AUTH, _ROUTE_PRIVATES } from "@/constants/route";
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
+import { _LOCALES } from "@/constants/lang";
+import { _ROUTE_AUTH, _ROUTE_PRIVATES } from "@/constants/route";
 
 export async function updateSession(request: NextRequest, response: NextResponse) {
   const supabase = createServerClient(
@@ -13,8 +13,12 @@ export async function updateSession(request: NextRequest, response: NextResponse
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          for (const { name, value } of cookiesToSet) request.cookies.set(name, value);
-          for (const { name, value, options } of cookiesToSet) response.cookies.set(name, value, options);
+          for (const { name, value } of cookiesToSet) {
+            request.cookies.set(name, value);
+          }
+          for (const { name, value, options } of cookiesToSet) {
+            response.cookies.set(name, value, options);
+          }
         }
       }
     }

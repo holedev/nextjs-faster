@@ -1,8 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-const prismaClientSingleton = (): PrismaClient => {
-  return new PrismaClient();
-};
+const prismaClientSingleton = (): PrismaClient => new PrismaClient();
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: copy config from prisma
 declare const globalThis: {
@@ -13,4 +11,6 @@ const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 
 export { prisma };
 
-if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
+if (process.env.NODE_ENV !== "production") {
+  globalThis.prismaGlobal = prisma;
+}

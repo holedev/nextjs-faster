@@ -1,18 +1,17 @@
-import { createClientSSR } from "@/configs/supabase/server";
-import type { ResponseType } from "@/types/response";
 import type { User } from "@supabase/supabase-js";
+import { createClientSsr } from "@/configs/supabase/server";
+import type { ResponseType } from "@/types/response";
 import { ErrorResponse, SuccessResponse } from "./response";
 
-type handleErrorServerType = {
+type HandleErrorServerType = {
   cb: ({ user }: { user?: User }) => Promise<object>;
 };
 
-const handleErrorServerNoAuth = async ({ cb }: handleErrorServerType): Promise<ResponseType> => {
+const handleErrorServerNoAuth = async ({ cb }: HandleErrorServerType): Promise<ResponseType> => {
   try {
     const res = await cb({});
     return SuccessResponse({ payload: res });
   } catch (error) {
-    console.error("[handleErrorServer.ts:14] ", error);
     if (error instanceof Error) {
       return ErrorResponse({ message: error.message });
     }
@@ -20,9 +19,9 @@ const handleErrorServerNoAuth = async ({ cb }: handleErrorServerType): Promise<R
   }
 };
 
-const handleErrorServerWithAuth = async ({ cb }: handleErrorServerType): Promise<ResponseType> => {
+const handleErrorServerWithAuth = async ({ cb }: HandleErrorServerType): Promise<ResponseType> => {
   try {
-    const supabase = await createClientSSR();
+    const supabase = await createClientSsr();
     const { data, error: authError } = await supabase.auth.getUser();
 
     if (authError) {
@@ -36,7 +35,6 @@ const handleErrorServerWithAuth = async ({ cb }: handleErrorServerType): Promise
     const res = await cb({ user: data.user });
     return SuccessResponse({ payload: res });
   } catch (error) {
-    console.error("[handleErrorServer.ts:33] ", error);
     if (error instanceof Error) {
       return ErrorResponse({ message: error.message });
     }

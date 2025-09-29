@@ -1,13 +1,28 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
-    "enabled": false,
+    "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": false
+    "useIgnoreFile": true
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "dist", ".next", "memory-bank", ".pnpm-store", "pnpm-lock.yaml"]
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "!**/components/ui",
+      "!**/*.d.ts"
+    ]
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "formatter": {
     "enabled": true,
@@ -16,15 +31,6 @@
     "indentWidth": 2,
     "lineWidth": 120,
     "lineEnding": "lf"
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
   },
   "javascript": {
     "formatter": {
@@ -35,5 +41,29 @@
       "bracketSameLine": false,
       "arrowParentheses": "always"
     }
-  }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useConst": "off",
+        "useImportType": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noUnusedImports": "off"
+      },
+      "nursery": { "noShadow": "off" }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/components/custom/**/*.tsx"],
+      "linter": {
+        "rules": { "style": { "useFilenamingConvention": "off" } }
+      }
+    }
+  ],
+  "extends": ["ultracite"]
 }
