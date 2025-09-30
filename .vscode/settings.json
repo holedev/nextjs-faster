@@ -32,5 +32,14 @@
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "i18n-ally.keystyle": "nested"
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": ["configs/i18n", "configs/messages"],
+
+  // gh copilot
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    }
+  ]
 }

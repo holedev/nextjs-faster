@@ -1,4 +1,5 @@
 ---
+description: Next.js 15 with TypeScript and Shadcn UI best practices
 applyTo: "**/*.{ts,tsx,js,jsx}"
 ---
 
