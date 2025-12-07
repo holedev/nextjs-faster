@@ -1,8 +1,9 @@
 import "@/app/globals.css";
 import { Roboto } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { _LOCALES } from "@/constants/lang";
 import { cn } from "@/lib/utils";
 import type { locale } from "@/types/global";
 import { ThemeProvider } from "../theme-provider";
@@ -12,6 +13,8 @@ import { TooltipProvider } from "../ui/tooltip";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
+  display: "swap",
+  variable: "--font-roboto",
   style: ["italic", "normal"]
 });
 

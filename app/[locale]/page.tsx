@@ -11,8 +11,9 @@ type PageType = {
   params: Promise<{ locale: locale }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("home");
+export async function generateMetadata({ params }: PageType): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
   return {
     title: t("title")
   };
@@ -22,7 +23,7 @@ const techs: string[] = ["NextJS 15", "TailwindCSS 4", "Shadcn", "Prisma 6", "Su
 
 export default async function Page({ params }: PageType) {
   const { locale } = await params;
-  setRequestLocale(locale);
+  setRequestLocale(locale as locale);
 
   return (
     <section className='h-full space-y-4 p-4'>

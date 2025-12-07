@@ -1,25 +1,25 @@
 "use server";
 
-import { unstable_cache } from "next/cache";
+import { cacheTag } from "next/cache";
 import { prisma } from "@/configs/prisma/db";
+import { _CACHE_NICKNAMES } from "@/constants/cache";
 import { handleErrorServerNoAuth } from "@/utils/handle-error-server";
 
 const getAllNickname = async () =>
   handleErrorServerNoAuth({
-    cb: unstable_cache(
-      async () => {
-        const nicknames = await prisma.nickname.findMany({
-          select: {
-            content: true,
-            updatedAt: true
-          }
-        });
+    cb: async () => {
+      "use cache";
+      cacheTag(_CACHE_NICKNAMES);
 
-        return nicknames;
-      },
-      ["nicknames"],
-      { tags: ["nicknames"] }
-    )
+      const nicknames = await prisma.nickname.findMany({
+        select: {
+          content: true,
+          updatedAt: true
+        }
+      });
+
+      return nicknames;
+    }
   });
 
 export { getAllNickname };

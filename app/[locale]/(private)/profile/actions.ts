@@ -1,28 +1,27 @@
 "use server";
 
-import { revalidateTag, unstable_cache } from "next/cache";
+import { cacheTag, revalidateTag, updateTag } from "next/cache";
 import { prisma } from "@/configs/prisma/db";
+import { _CACHE_NICKNAMES, _CACHE_PROFILE } from "@/constants/cache";
 import { handleErrorServerWithAuth } from "@/utils/handle-error-server";
 
 const getProfile = async () =>
   handleErrorServerWithAuth({
-    cb: ({ user }) =>
-      unstable_cache(
-        async () => {
-          const nickname = await prisma.nickname.findUnique({
-            where: {
-              authorId: user?.id
-            }
-          });
+    cb: async ({ user }) => {
+      "use cache";
+      cacheTag(`${_CACHE_PROFILE}::${user?.id}`);
 
-          return {
-            ...user,
-            nickname: nickname?.content
-          };
-        },
-        ["profile", user?.id ?? ""],
-        { tags: [`profile::${user?.id}`] }
-      )()
+      const nickname = await prisma.nickname.findUnique({
+        where: {
+          authorId: user?.id
+        }
+      });
+
+      return {
+        ...user,
+        nickname: nickname?.content
+      };
+    }
   });
 
 const updateNickname = async (nickname: string) =>
@@ -53,8 +52,8 @@ const updateNickname = async (nickname: string) =>
         }
       });
 
-      revalidateTag("nicknames");
-      revalidateTag(`profile::${user.id}`);
+      updateTag(_CACHE_NICKNAMES);
+      updateTag(`${_CACHE_PROFILE}::${user.id}`);
       return updatedNickname;
     }
   });

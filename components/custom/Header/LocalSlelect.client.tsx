@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePathname, useRouter } from "@/configs/i18n/routing";
+import { locale } from "@/types/global";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
 
 const LocaleSelect = () => {
@@ -13,7 +14,7 @@ const LocaleSelect = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleChangeLocale = (newLocale: string) => {
+  const handleChangeLocale = (newLocale: locale) => {
     startTransition(() => {
       router.replace({ pathname }, { locale: newLocale });
     });

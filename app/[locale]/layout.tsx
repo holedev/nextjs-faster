@@ -1,7 +1,8 @@
 import "@/app/globals.css";
+import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { BaseLayout } from "@/components/custom/BaseLayout";
 import { PageLayout } from "@/components/custom/PageLayout";
 import { routing } from "@/configs/i18n/routing";
@@ -10,7 +11,7 @@ import type { locale } from "@/types/global";
 
 type LocaleLayoutType = {
   children: ReactNode;
-  params: Promise<{ locale: locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -18,7 +19,12 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutType) {
-  const locale = (await params).locale;
+  "use cache";
+  cacheLife("max");
+
+  const { locale: localeParam } = await params;
+  const locale = localeParam as locale;
+
   setRequestLocale(locale);
 
   if (!routing.locales.includes(locale)) {

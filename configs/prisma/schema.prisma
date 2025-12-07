@@ -5,15 +5,13 @@
 // I only use Supabase for authentication. You can use Supabase for database as well. 
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["multiSchema"]
+  provider = "prisma-client"
+  output   = "./generated/prisma"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
-  schemas   = ["public"]
+  provider = "postgresql"
+  schemas  = ["public"]
 }
 
 model Nickname {

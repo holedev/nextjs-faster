@@ -23,8 +23,8 @@ applyTo: **/*.tsx, **/*.ts, src/**/*.ts, src/**/*.tsx
 
 ## Development Environment
 
-- Node.js version 22
-- PNPM version >= 9
+- Node.js version 24
+- PNPM version >= 10
 - Use Turbopack in development (`next dev --turbopack`)
 - Use Biome for linting and formatting
 - Commits are checked with Biome via lint-staged

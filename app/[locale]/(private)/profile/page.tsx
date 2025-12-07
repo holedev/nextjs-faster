@@ -7,8 +7,6 @@ import { getProfile } from "./actions";
 import { Profile } from "./dynamic";
 import { FormClient } from "./form.client";
 
-export const dynamic = "force-dynamic";
-
 type User = SupabaseUser & {
   nickname?: string;
 };

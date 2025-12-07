@@ -1,14 +1,15 @@
 # 🚀 Next Faster
 
-Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for developers who want to move fast without compromising on quality.
+Rapid development with Next.js 16 TypeScript, Shadcn UI, i18n, Prisma and Swagger. Built for developers who want to move fast without compromising on quality.
 
 ## 🛠 Technologies
 
 ### Frontend
-- Next.js 15 (App Router)
+- Next.js 16 (App Router)
 - TypeScript 5
-- TailwindCSS 4 (Latest)
+- TailwindCSS 5 (Latest)
 - Shadcn UI
+- next-intl (i18n)
 - Swagger UI
 
 ### Backend & Database
@@ -21,7 +22,7 @@ Rapid development with Next.js 15, TypeScript, and Shadcn UI, Swagger. Built for
 - Format & Linting
 - Pre-commit hooks
 - Semantic Release
-- Some rules & memory for Cline, RooCode
+- Some rules for Cline, RooCode
 
 ## Core Features
 - **Dev Containers**: Pre-configured development environment with [Development Container](https://containers.dev/).
