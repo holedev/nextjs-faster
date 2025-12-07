@@ -28,9 +28,9 @@ jobs:
       - name: Enable pnpm
         run: corepack enable
 
-      - name: Install dependencies
+      - name: Install dependencies without postinstall scipt (dont have env to run prisma)
         run: |
-          pnpm install
+          npm_config_ignore_scripts=true pnpm install
 
       - name: Run semantic-release
         env:
