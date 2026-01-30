@@ -48,13 +48,19 @@
       "recommended": true,
       "style": {
         "useConst": "off",
-        "useImportType": "off"
+        "useImportType": "off",
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "type"
+          }
+        }
       },
       "correctness": {
         "noUnusedVariables": "off",
         "noUnusedImports": "off"
       },
-      "nursery": { "noShadow": "off" }
+      "nursery": { "noShadow": "off", "useSortedClasses": "info" }
     }
   },
   "overrides": [
@@ -65,5 +71,5 @@
       }
     }
   ],
-  "extends": ["ultracite/core", "ultracite/react"]
+  "extends": ["ultracite/biome/core", "ultracite/biome/next"]
 }
