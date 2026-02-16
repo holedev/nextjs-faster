@@ -44,3 +44,5 @@ next-env.d.ts
 
 # devcontainer
 !.devcontainer/.env
+.agent/
+.agents/

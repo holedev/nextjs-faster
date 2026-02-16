@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "@/configs/i18n/routing";
 import { _ROUTE_PROFILE } from "@/constants/route";
-import { getRandomPastelColor, handleDatetime } from "@/utils/handle-datetime";
+import { getRandomPastelColor } from "@/utils/color";
+import { handleDatetime } from "@/utils/handle-datetime";
 import { getAllNickname } from "./actions";
 
 type NicknameType = {
@@ -34,7 +35,7 @@ const UserList = async () => {
         </p>
       </div>
       <div className='flex flex-wrap justify-center gap-2'>
-        {nicknames?.map((nickname, _) => {
+        {nicknames?.map((nickname) => {
           const randomBackgroundColor = getRandomPastelColor();
 
           return (

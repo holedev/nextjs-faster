@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageType): Promise<Metadata> 
   };
 }
 
-const techs: string[] = ["NextJS 15", "TailwindCSS 4", "Shadcn", "Prisma 6", "Supabase", "Swagger"];
+const techs: string[] = ["NextJS 16", "TailwindCSS 4", "Shadcn", "Prisma 7", "Supabase", "Swagger"];
 
 export default async function Page({ params }: PageType) {
   const { locale } = await params;
@@ -28,7 +28,7 @@ export default async function Page({ params }: PageType) {
   return (
     <section className='h-full space-y-4 p-4'>
       <div className='flex flex-wrap items-center justify-center gap-2'>
-        {techs.map((tech, _) => (
+        {techs.map((tech) => (
           <Badge className='rounded-md text-xl' key={tech}>
             {tech}
           </Badge>

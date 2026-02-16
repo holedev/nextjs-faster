@@ -9,10 +9,4 @@ const handleDatetime = (datetime: Date) =>
     second: "2-digit"
   });
 
-const getRandomPastelColor = () => {
-  const _maxHue = 360;
-  const hue = Math.floor(Math.random() * _maxHue);
-  return `hsl(${hue}, 70%, 80%)`;
-};
-
-export { getRandomPastelColor, handleDatetime };
+export { handleDatetime };

@@ -1,4 +1,3 @@
-import { cacheLife } from "next/cache";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { locale } from "@/types/global";
 import { LoginClient } from "./auth.client";
@@ -16,8 +15,6 @@ export async function generateMetadata({ params }: PageType) {
 }
 
 export default async function Page({ params }: PageType) {
-  "use cache";
-  cacheLife("max");
   const { locale } = await params;
   setRequestLocale(locale as locale);
 

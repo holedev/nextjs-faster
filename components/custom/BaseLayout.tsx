@@ -1,4 +1,3 @@
-import "@/app/globals.css";
 import { Roboto } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";

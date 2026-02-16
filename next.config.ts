@@ -11,21 +11,10 @@ const nextConfig: NextConfig = {
     "*": [".next/export-detail.json"],
     "/api/docs": ["./.next/cache/**/*"]
   },
-  webpack: (
-    config,
-    {
-      buildId: _buildId,
-      dev,
-      isServer: _isServer,
-      defaultLoaders: _defaultLoaders,
-      nextRuntime: _nextRuntime,
-      webpack: _webpack
-    }
-  ) => {
+  webpack: (config, { dev }) => {
     if (config.cache && !dev) {
       config.cache = Object.freeze({ type: "memory" });
     }
-    // Important: return the modified config
     return config;
   }
 };

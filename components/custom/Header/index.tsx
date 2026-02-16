@@ -1,7 +1,7 @@
 import { default as NextLink } from "next/link";
 import { useTranslations } from "next-intl";
 import { Link } from "@/configs/i18n/routing";
-import { LocaleSelect } from "./LocalSlelect.client";
+import { LocaleSelect } from "./LocaleSelect.client";
 import { ModeToggle } from "./ModeToggle.client";
 import { UserProfile } from "./UserProfile.client";
 

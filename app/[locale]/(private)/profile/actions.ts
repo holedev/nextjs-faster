@@ -1,6 +1,6 @@
 "use server";
 
-import { cacheTag, revalidateTag, updateTag } from "next/cache";
+import { cacheTag, updateTag } from "next/cache";
 import { prisma } from "@/configs/prisma/db";
 import { _CACHE_NICKNAMES, _CACHE_PROFILE } from "@/constants/cache";
 import { handleErrorServerWithAuth } from "@/utils/handle-error-server";

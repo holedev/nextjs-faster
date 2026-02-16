@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePathname, useRouter } from "@/configs/i18n/routing";
-import { locale } from "@/types/global";
+import type { locale } from "@/types/global";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
 
 const LocaleSelect = () => {

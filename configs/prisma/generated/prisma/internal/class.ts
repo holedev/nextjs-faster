@@ -17,18 +17,26 @@ import type * as Prisma from "./prismaNamespace"
 
 const config: runtime.GetPrismaClientConfig = {
   "previewFeatures": [],
-  "clientVersion": "7.1.0",
-  "engineVersion": "ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba",
+  "clientVersion": "7.4.0",
+  "engineVersion": "ab56fe763f921d033a6c195e7ddeb3e255bdbb57",
   "activeProvider": "postgresql",
   "inlineSchema": "// https://supabase.com/partners/integrations/prisma\n\n// NOTE: \n// I do not use database of Supabase, I use my own database with prisma to save data locally.\n// I only use Supabase for authentication. You can use Supabase for database as well. \n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"./generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  schemas  = [\"public\"]\n}\n\nmodel Nickname {\n  id        Int      @id @default(autoincrement())\n  authorId  String   @unique\n  content   String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  @@schema(\"public\")\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
     "types": {}
+  },
+  "parameterizationSchema": {
+    "strings": [],
+    "graph": ""
   }
 }
 
 config.runtimeDataModel = JSON.parse("{\"models\":{\"Nickname\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.parameterizationSchema = {
+  strings: JSON.parse("[\"where\",\"Nickname.findUnique\",\"Nickname.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"Nickname.findFirst\",\"Nickname.findFirstOrThrow\",\"Nickname.findMany\",\"data\",\"Nickname.createOne\",\"Nickname.createMany\",\"Nickname.createManyAndReturn\",\"Nickname.updateOne\",\"Nickname.updateMany\",\"Nickname.updateManyAndReturn\",\"create\",\"update\",\"Nickname.upsertOne\",\"Nickname.deleteOne\",\"Nickname.deleteMany\",\"having\",\"_count\",\"_avg\",\"_sum\",\"_min\",\"_max\",\"Nickname.groupBy\",\"Nickname.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"authorId\",\"content\",\"createdAt\",\"updatedAt\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"set\",\"increment\",\"decrement\",\"multiply\",\"divide\"]"),
+  graph: "MAsQCBwAACUAMB0AAAQAEB4AACUAMB8CAAAAASABAAAAASEBACcAISJAACgAISNAACgAIQEAAAABACABAAAAAQAgCBwAACUAMB0AAAQAEB4AACUAMB8CACYAISABACcAISEBACcAISJAACgAISNAACgAIQADAAAABAAgAwAABQAwBAAAAQAgAwAAAAQAIAMAAAUAMAQAAAEAIAMAAAAEACADAAAFADAEAAABACAFHwIAAAABIAEAAAABIQEAAAABIkAAAAABI0AAAAABAQgAAAkAIAUfAgAAAAEgAQAAAAEhAQAAAAEiQAAAAAEjQAAAAAEBCAAACwAwAQgAAAsAMAUfAgAwACEgAQAuACEhAQAuACEiQAAvACEjQAAvACECAAAAAQAgCAAADgAgBR8CADAAISABAC4AISEBAC4AISJAAC8AISNAAC8AIQIAAAAEACAIAAAQACACAAAABAAgCAAAEAAgAwAAAAEAIA8AAAkAIBAAAA4AIAEAAAABACABAAAABAAgBRUAACkAIBYAACoAIBcAAC0AIBgAACwAIBkAACsAIAgcAAAaADAdAAAXABAeAAAaADAfAgAbACEgAQAcACEhAQAcACEiQAAdACEjQAAdACEDAAAABAAgAwAAFgAwFAAAFwAgAwAAAAQAIAMAAAUAMAQAAAEAIAgcAAAaADAdAAAXABAeAAAaADAfAgAbACEgAQAcACEhAQAcACEiQAAdACEjQAAdACENFQAAHwAgFgAAJAAgFwAAHwAgGAAAHwAgGQAAHwAgJAIAAAABJQIAAAAEJgIAAAAEJwIAAAABKAIAAAABKQIAAAABKgIAAAABKwIAIwAhDhUAAB8AIBgAACIAIBkAACIAICQBAAAAASUBAAAABCYBAAAABCcBAAAAASgBAAAAASkBAAAAASoBAAAAASsBACEAISwBAAAAAS0BAAAAAS4BAAAAAQsVAAAfACAYAAAgACAZAAAgACAkQAAAAAElQAAAAAQmQAAAAAQnQAAAAAEoQAAAAAEpQAAAAAEqQAAAAAErQAAeACELFQAAHwAgGAAAIAAgGQAAIAAgJEAAAAABJUAAAAAEJkAAAAAEJ0AAAAABKEAAAAABKUAAAAABKkAAAAABK0AAHgAhCCQCAAAAASUCAAAABCYCAAAABCcCAAAAASgCAAAAASkCAAAAASoCAAAAASsCAB8AIQgkQAAAAAElQAAAAAQmQAAAAAQnQAAAAAEoQAAAAAEpQAAAAAEqQAAAAAErQAAgACEOFQAAHwAgGAAAIgAgGQAAIgAgJAEAAAABJQEAAAAEJgEAAAAEJwEAAAABKAEAAAABKQEAAAABKgEAAAABKwEAIQAhLAEAAAABLQEAAAABLgEAAAABCyQBAAAAASUBAAAABCYBAAAABCcBAAAAASgBAAAAASkBAAAAASoBAAAAASsBACIAISwBAAAAAS0BAAAAAS4BAAAAAQ0VAAAfACAWAAAkACAXAAAfACAYAAAfACAZAAAfACAkAgAAAAElAgAAAAQmAgAAAAQnAgAAAAEoAgAAAAEpAgAAAAEqAgAAAAErAgAjACEIJAgAAAABJQgAAAAEJggAAAAEJwgAAAABKAgAAAABKQgAAAABKggAAAABKwgAJAAhCBwAACUAMB0AAAQAEB4AACUAMB8CACYAISABACcAISEBACcAISJAACgAISNAACgAIQgkAgAAAAElAgAAAAQmAgAAAAQnAgAAAAEoAgAAAAEpAgAAAAEqAgAAAAErAgAfACELJAEAAAABJQEAAAAEJgEAAAAEJwEAAAABKAEAAAABKQEAAAABKgEAAAABKwEAIgAhLAEAAAABLQEAAAABLgEAAAABCCRAAAAAASVAAAAABCZAAAAABCdAAAAAAShAAAAAASlAAAAAASpAAAAAAStAACAAIQAAAAAAAS8BAAAAAQEvQAAAAAEFLwIAAAABMAIAAAABMQIAAAABMgIAAAABMwIAAAABAAAAAAUVAAYWAAcXAAgYAAkZAAoAAAAAAAUVAAYWAAcXAAgYAAkZAAoBAgECAwEFBgEGBwEHCAEJCgEKDAILDQMMDwENEQIOEgQREwESFAETFQIaGAUbGQs"
+}
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -37,12 +45,14 @@ async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Modul
 }
 
 config.compilerWasm = {
-  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_bg.postgresql.mjs"),
+  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"),
 
   getQueryCompilerWasmModule: async () => {
-    const { wasm } = await import("@prisma/client/runtime/query_compiler_bg.postgresql.wasm-base64.mjs")
+    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs")
     return await decodeBase64AsWasm(wasm)
-  }
+  },
+
+  importName: "./query_compiler_fast_bg.js"
 }
 
 
