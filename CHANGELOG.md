@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/holedev/nextjs-faster/compare/v1.6.1...v1.7.0) (2026-06-15)
+
+
+### Features
+
+* implement agent skills and update package ([5ff2b9e](https://github.com/holedev/nextjs-faster/commit/5ff2b9ed3cb1d897fe9296faebcf79998414c460))
+
 ## [1.6.1](https://github.com/holedev/nextjs-faster/compare/v1.6.0...v1.6.1) (2025-12-07)
 
 
