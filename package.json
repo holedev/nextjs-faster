@@ -6,6 +6,7 @@
     "node": ">=24",
     "pnpm": ">=9"
   },
+  "packageManager": "pnpm@10.28.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -75,6 +76,16 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
       "pnpm dlx ultracite fix"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@prisma/engines",
+      "@swc/core",
+      "prisma",
+      "sharp",
+      "unrs-resolver"
     ]
   }
 }
