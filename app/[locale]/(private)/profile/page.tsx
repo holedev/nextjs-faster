@@ -2,7 +2,7 @@ import type { User as SupabaseUser } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
-import { LoadingComponent } from "@/components/custom/Loading";
+import { LoadingComponent } from "@/components/custom/loading";
 import { getProfile } from "./actions";
 import { Profile } from "./dynamic";
 import { FormClient } from "./form.client";

@@ -76,8 +76,8 @@
 }
 
 @utility container {
-  margin-inline: auto;
   padding-inline: 2rem;
+  margin-inline: auto;
   @media (width >= --theme(--breakpoint-sm)) {
     max-width: none;
   }
@@ -229,9 +229,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
+    @apply bg-background text-foreground;
   }
 }

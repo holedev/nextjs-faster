@@ -2,8 +2,8 @@ import { AlertTriangleIcon, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Suspense } from "react";
-import { BaseLayout } from "@/components/custom/BaseLayout";
-import { LoadingComponent } from "@/components/custom/Loading";
+import { BaseLayout } from "@/components/custom/base-layout";
+import { LoadingComponent } from "@/components/custom/loading";
 import { Button } from "@/components/ui/button";
 
 function NotFound() {

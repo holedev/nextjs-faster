@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
-import { LoadingComponent } from "@/components/custom/Loading";
+import { LoadingComponent } from "@/components/custom/loading";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { locale } from "@/types/global";

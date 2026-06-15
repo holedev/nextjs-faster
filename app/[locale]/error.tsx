@@ -1,6 +1,6 @@
 "use client";
 
-import { ErrorContent } from "@/components/custom/ErrorContent";
+import { ErrorContent } from "@/components/custom/error-content";
 
 type ErrorType = { error: Error & { digest?: string }; reset: () => void };
 

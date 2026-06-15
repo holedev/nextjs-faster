@@ -192,7 +192,7 @@ export type NicknameGroupByOutputType = {
   _max: NicknameMaxAggregateOutputType | null
 }
 
-type GetNicknameGroupByPayload<T extends NicknameGroupByArgs> = Prisma.PrismaPromise<
+export type GetNicknameGroupByPayload<T extends NicknameGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<NicknameGroupByOutputType, T['by']> &
       {
@@ -1011,6 +1011,11 @@ export type NicknameFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` Nicknames.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Nicknames.
+   */
   distinct?: Prisma.NicknameScalarFieldEnum | Prisma.NicknameScalarFieldEnum[]
 }
 

@@ -13,7 +13,10 @@
       "**/*.js",
       "**/*.jsx",
       "!**/components/ui",
-      "!**/*.d.ts"
+      "!**/*.d.ts",
+      "!**/configs/prisma/**/generated",
+      "!.agents/**/*.md",
+      "!.claude/**/*.md"
     ]
   },
   "assist": {
@@ -45,7 +48,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "style": {
         "useConst": "off",
         "useImportType": "off",
@@ -60,16 +63,8 @@
         "noUnusedVariables": "off",
         "noUnusedImports": "off"
       },
-      "nursery": { "noShadow": "off", "useSortedClasses": "info" }
+      "nursery": { "useSortedClasses": "info" }
     }
   },
-  "overrides": [
-    {
-      "includes": ["**/components/custom/**/*.tsx"],
-      "linter": {
-        "rules": { "style": { "useFilenamingConvention": "off" } }
-      }
-    }
-  ],
   "extends": ["ultracite/biome/core", "ultracite/biome/next"]
 }

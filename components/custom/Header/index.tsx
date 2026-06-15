@@ -1,9 +1,9 @@
 import { default as NextLink } from "next/link";
 import { useTranslations } from "next-intl";
 import { Link } from "@/configs/i18n/routing";
-import { LocaleSelect } from "./LocaleSelect.client";
-import { ModeToggle } from "./ModeToggle.client";
-import { UserProfile } from "./UserProfile.client";
+import { LocaleSelect } from "./locale-select.client";
+import { ModeToggle } from "./mode-toggle.client";
+import { UserProfile } from "./user-profile.client";
 
 const Header = () => {
   const tHeader = useTranslations("header");

@@ -1,7 +1,7 @@
 "use client";
 
-import { BaseLayout } from "@/components/custom/BaseLayout";
-import { ErrorContent } from "@/components/custom/ErrorContent";
+import { BaseLayout } from "@/components/custom/base-layout";
+import { ErrorContent } from "@/components/custom/error-content";
 
 type ErrorType = { error: Error & { digest?: string }; reset: () => void };
 
