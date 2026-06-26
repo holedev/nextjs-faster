@@ -1,0 +1,12 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@prisma/engines': true
+  '@scarf/scarf': true
+  '@swc/core': true
+  '@tree-sitter-grammars/tree-sitter-yaml': true
+  core-js-pure: true
+  prisma: true
+  sharp: true
+  tree-sitter: true
+  tree-sitter-json: true
+  unrs-resolver: true

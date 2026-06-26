@@ -1,5 +1,3 @@
 [tools]
 node = "24.16.0"
-
-[settings.npm]
-package_manager = "pnpm"
+pnpm = "11.6.0"
