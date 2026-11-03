@@ -1,10 +1,10 @@
-import type { User } from "@supabase/supabase-js";
-import { createClientSsr } from "@/configs/supabase/server";
+import type { JwtPayload } from "@supabase/supabase-js";
+import { getAuthClaims } from "@/configs/supabase/server";
 import type { ResponseType } from "@/types/response";
 import { ErrorResponse, SuccessResponse } from "./response";
 
 type HandleErrorServerType = {
-  cb: ({ user }: { user?: User }) => Promise<object>;
+  cb: ({ claims }: { claims?: JwtPayload }) => Promise<object>;
 };
 
 const handleErrorServerNoAuth = async ({ cb }: HandleErrorServerType): Promise<ResponseType> => {
@@ -21,18 +21,13 @@ const handleErrorServerNoAuth = async ({ cb }: HandleErrorServerType): Promise<R
 
 const handleErrorServerWithAuth = async ({ cb }: HandleErrorServerType): Promise<ResponseType> => {
   try {
-    const supabase = await createClientSsr();
-    const { data, error: authError } = await supabase.auth.getUser();
+    const claims = await getAuthClaims();
 
-    if (authError) {
-      return ErrorResponse({ message: authError.message });
+    if (!claims) {
+      return ErrorResponse({ status: 401, message: "Unauthorized" });
     }
 
-    if (!data.user) {
-      return ErrorResponse({ message: "Unauthorized" });
-    }
-
-    const res = await cb({ user: data.user });
+    const res = await cb({ claims });
     return SuccessResponse({ payload: res });
   } catch (error) {
     if (error instanceof Error) {

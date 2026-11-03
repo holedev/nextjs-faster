@@ -1,14 +1,14 @@
 import { createServerClient } from "@supabase/ssr";
+import type { JwtPayload } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
+import { cache } from "react";
+import { getSupabaseEnv } from "./env";
 
 export async function createClientSsr() {
   const cookieStore = await cookies();
+  const { url, key } = getSupabaseEnv();
 
-  if (!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)) {
-    throw new Error("Missing Supabase environment variables");
-  }
-
-  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, {
+  return createServerClient(url, key, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
@@ -20,10 +20,25 @@ export async function createClientSsr() {
           }
         } catch {
           // The `setAll` method was called from a Server Component.
-          // This can be ignored if you have middleware refreshing
-          // user sessions.
+          // This can be ignored because the proxy refreshes user sessions.
         }
       }
     }
   });
 }
+
+/**
+ * Auth claims of the current request, verified locally against the project's JWKS
+ * (no Auth server round-trip with asymmetric signing keys). Deduplicated per request.
+ * Returns `null` when there is no valid session.
+ */
+export const getAuthClaims = cache(async (): Promise<JwtPayload | null> => {
+  const supabase = await createClientSsr();
+  const { data, error } = await supabase.auth.getClaims();
+
+  if (error || !data) {
+    return null;
+  }
+
+  return data.claims;
+});
