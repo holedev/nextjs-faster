@@ -1,15 +1,10 @@
-import type { User as SupabaseUser } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { LoadingComponent } from "@/components/custom/loading";
-import { getProfile } from "./actions";
+import { getProfile, type ProfileType } from "./actions";
 import { Profile } from "./dynamic";
 import { FormClient } from "./form.client";
-
-type User = SupabaseUser & {
-  nickname?: string;
-};
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("profile");
@@ -24,15 +19,15 @@ export default async function Page() {
   if (error) {
     throw new Error(error.message);
   }
-  const user = data?.payload as User;
+  const profile = data?.payload as ProfileType;
 
   return (
     <section className='flex w-[400px] flex-col space-y-2'>
       <Suspense fallback={<LoadingComponent />}>
-        <FormClient nickname={user?.nickname || ""} />
+        <FormClient nickname={profile.nickname || ""} />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
-        <Profile user={user} />
+        <Profile profile={profile} />
       </Suspense>
     </section>
   );
