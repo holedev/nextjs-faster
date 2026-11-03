@@ -7,7 +7,7 @@ Rapid development with Next.js 16, TypeScript, Shadcn UI, i18n, Prisma and Swagg
 ### Frontend
 
 - Next.js 16 (App Router)
-- TypeScript 5
+- TypeScript 6
 - TailwindCSS 4
 - Shadcn UI
 - next-intl (i18n)
@@ -34,7 +34,7 @@ Rapid development with Next.js 16, TypeScript, Shadcn UI, i18n, Prisma and Swagg
 - **Common UI Components**: Shadcn UI components for rapid development — swap in another UI kit if you prefer.
 - **Light/Dark Mode**: Theme switching based on user preference with next-themes.
 - **Multi Language**: Internationalization (i18n) with next-intl. Ships with `en` and `vi` (default `vi`).
-- **OAuth2**: Authentication with [Supabase](https://supabase.com/).
+- **OAuth2**: Authentication with [Supabase](https://supabase.com/). Sessions are verified locally from the JWT (`getClaims()` with [asymmetric signing keys](https://supabase.com/docs/guides/auth/signing-keys)), so requests don't round-trip to the Auth server.
 - **API Documentation**: Generated API docs with [Swagger UI](https://swagger.io/tools/swagger-ui/), served at `/api-docs`.
 - **Auto Release**: Automated releases with [Semantic Release](https://semantic-release.gitbook.io/semantic-release/).
 - **Vercel Deployment**: One-click deployment to [Vercel](https://vercel.com/).
@@ -87,7 +87,7 @@ pnpm dev
 
 ### Vercel (Recommended)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fholedev%2Fnextjs-faster&env=NEXT_PUBLIC_API_URL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,DATABASE_URL&envDescription=You%20can%20get%20a%20free%20API%20key%20in%20Supabase&envLink=https%3A%2F%2Fsupabase.com%2Fdocs%2Fguides%2Fauth%2Fserver-side%2Fnextjs&project-name=nextjs-faster&repository-name=nextjs-faster&demo-title=NextJS%20Faster&demo-description=Rapid%20development%20with%20Next.js%2016%2C%20TypeScript%2C%20Shadcn%20UI%2C%20Prisma%20and%20Swagger.&demo-url=https%3A%2F%2Fnextjs-faster.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fholedev%2Fnextjs-faster&env=NEXT_PUBLIC_API_URL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,DATABASE_URL&envDescription=You%20can%20get%20a%20free%20API%20key%20in%20Supabase&envLink=https%3A%2F%2Fsupabase.com%2Fdocs%2Fguides%2Fauth%2Fserver-side%2Fnextjs&project-name=nextjs-faster&repository-name=nextjs-faster&demo-title=NextJS%20Faster&demo-description=Rapid%20development%20with%20Next.js%2016%2C%20TypeScript%2C%20Shadcn%20UI%2C%20Prisma%20and%20Swagger.&demo-url=https%3A%2F%2Fnextjs-faster.vercel.app)
 
 ### Docker
 
