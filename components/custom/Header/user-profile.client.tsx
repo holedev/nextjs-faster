@@ -1,7 +1,6 @@
 "use client";
 
 import type { User } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -26,22 +25,22 @@ const UserProfile = () => {
   const handleLogout = async () => {
     const supabase = createClient();
     await supabase.auth.signOut();
-    setUser(null);
     router.push(_ROUTE_AUTH);
   };
 
   useEffect(() => {
-    const getUser = async () => {
-      const supabase = createClient();
-      const { data } = await supabase.auth.getUser();
+    const supabase = createClient();
 
-      if (data.user) {
-        setUser(data.user as User);
-      }
+    // Display-only: the session is read from the auth cookie without an Auth server
+    // round-trip. Access control is enforced by the proxy and server actions.
+    const {
+      data: { subscription }
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
       setLoading(false);
-    };
+    });
 
-    getUser();
+    return () => subscription.unsubscribe();
   }, []);
 
   if (loading) {
@@ -62,7 +61,7 @@ const UserProfile = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
-    <Button onClick={() => redirect(_ROUTE_AUTH)} variant='outline'>
+    <Button onClick={() => router.push(_ROUTE_AUTH)} variant='outline'>
       {t("login")}
     </Button>
   );
