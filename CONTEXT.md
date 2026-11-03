@@ -5,10 +5,17 @@ The project-specific language of this Next.js starter template. A glossary of th
 ## Language
 
 **Private route**:
-A page under the `(private)` route group; requires an authenticated Supabase user. Membership is declared in `_ROUTE_PRIVATES` (`constants/route.ts`) and enforced by the Supabase middleware.
+A page under the `(private)` route group; requires valid **Auth claims**. Membership is declared in `_ROUTE_PRIVATES` (`constants/route.ts`) and enforced by the proxy (`proxy.ts`).
 
 **Public route**:
 A page under the `(public)` route group, reachable without auth (e.g. `/auth`).
+
+**Auth claims**:
+The signed-in user's identity as read from the verified Supabase JWT (`sub`, `email`, `user_metadata`). Verified locally, so it may lag the Auth server by up to one token lifetime.
+_Avoid_: user, session (alone)
+
+**Supabase User**:
+The full, authoritative user record fetched from the Supabase Auth server. Reserved for actions that must not trust a possibly-stale token.
 
 **Response envelope**:
 The `{ error, data }` object every server action returns. Success carries `data.payload`; failure carries `error.{ status, message }`. Built via `SuccessResponse`/`ErrorResponse`.
